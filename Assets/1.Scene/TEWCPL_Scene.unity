@@ -6471,11 +6471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4333491988720984, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.76
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4333491988720984, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.55
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 4333491988720984, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6505,42 +6505,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114021909445251090, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
---- !u!1 &1006906308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1585349779547952, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
-  m_PrefabInstance: {fileID: 1006906307}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1006906309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006906308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 272c61d615762764daa4b5bd3e11b221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_Data: {fileID: 11400000, guid: 070ca2b303552244fa4c7248d48e671c, type: 2}
-  isSkillUse: 0
-  SkillUse: 102
---- !u!114 &1006906310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006906308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_Skill: {fileID: 1006906309}
 --- !u!1001 &1013127931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11926,42 +11892,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114807186997810214, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
---- !u!1 &1792807121 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1969419073538870, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
-  m_PrefabInstance: {fileID: 1792807120}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1792807122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792807121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 272c61d615762764daa4b5bd3e11b221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_Data: {fileID: 11400000, guid: 0ce2cdb1293f6af4b8e98eda0d60bd19, type: 2}
-  isSkillUse: 0
-  SkillUse: 102
---- !u!114 &1792807123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792807121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_Skill: {fileID: 1792807122}
 --- !u!1001 &1809288502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12079,42 +12011,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114749360120129354, guid: 7451ef01e53127446b9d7406220542f6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7451ef01e53127446b9d7406220542f6, type: 3}
---- !u!1 &1812658492 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1417258215064542, guid: 7451ef01e53127446b9d7406220542f6, type: 3}
-  m_PrefabInstance: {fileID: 1812658491}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1812658493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812658492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 272c61d615762764daa4b5bd3e11b221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_Data: {fileID: 11400000, guid: ff850cb4d2d7e684a83d3cc17a63e395, type: 2}
-  isSkillUse: 0
-  SkillUse: 102
---- !u!114 &1812658494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812658492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_Skill: {fileID: 1812658493}
 --- !u!1001 &1826589332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15105,6 +15003,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 112935301516251139, guid: b924dce73e13fbd46b06d493f10d4ad7, type: 3}
   m_PrefabInstance: {fileID: 7214883511627798426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7382651844945781759
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619751230322677249, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994905338426608827, guid: df166513ccda1304196e7156a978bfd1, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df166513ccda1304196e7156a978bfd1, type: 3}
 --- !u!4 &7407659811091300505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4293401399639331102, guid: 4d8d3aeb7b37cce489edce3815314b3b, type: 3}

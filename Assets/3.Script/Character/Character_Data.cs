@@ -19,15 +19,9 @@ public class Character_Data : ScriptableObject
 
      */
 
-
     public bool isSkillPassive;
     public bool isDefence;
     public bool isDelete;
-
-
-
-    // awake에서 스킬이 패시브인지 확인 후 메소드 끌어오기
-
 
 
 }
