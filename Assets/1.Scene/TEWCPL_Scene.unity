@@ -6508,6 +6508,39 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114021909445251090, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
+--- !u!1 &1006906308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1585349779547952, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
+  m_PrefabInstance: {fileID: 1006906307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1006906309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006906308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272c61d615762764daa4b5bd3e11b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Data: {fileID: 11400000, guid: 070ca2b303552244fa4c7248d48e671c, type: 2}
+  isSkillUse: 0
+  SkillUse: 102
+--- !u!114 &1006906310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006906308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Skill: {fileID: 1006906309}
 --- !u!1001 &1013127931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11896,6 +11929,39 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114807186997810214, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
+--- !u!1 &1792807121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1969419073538870, guid: aa3784adb6428184e991be2d60ee0cb2, type: 3}
+  m_PrefabInstance: {fileID: 1792807120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1792807122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792807121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272c61d615762764daa4b5bd3e11b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Data: {fileID: 11400000, guid: 0ce2cdb1293f6af4b8e98eda0d60bd19, type: 2}
+  isSkillUse: 0
+  SkillUse: 102
+--- !u!114 &1792807123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792807121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Skill: {fileID: 1792807122}
 --- !u!1001 &1809288502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12016,6 +12082,39 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114749360120129354, guid: 7451ef01e53127446b9d7406220542f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7451ef01e53127446b9d7406220542f6, type: 3}
+--- !u!1 &1812658492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1417258215064542, guid: 7451ef01e53127446b9d7406220542f6, type: 3}
+  m_PrefabInstance: {fileID: 1812658491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812658493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812658492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272c61d615762764daa4b5bd3e11b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Data: {fileID: 11400000, guid: ff850cb4d2d7e684a83d3cc17a63e395, type: 2}
+  isSkillUse: 0
+  SkillUse: 102
+--- !u!114 &1812658494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812658492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Skill: {fileID: 1812658493}
 --- !u!1001 &1826589332
 PrefabInstance:
   m_ObjectHideFlags: 0

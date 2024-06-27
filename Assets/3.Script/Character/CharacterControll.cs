@@ -9,7 +9,6 @@ public class CharacterControll : MonoBehaviour
     /*
      *     1. 생존여부=> bool
     캐릭터 데이터에서 작성한 정보를 받아와서 오브젝트에 붙여서 실행할 스크립트
-    이동 키보드 방향키
 
      */
 
@@ -17,9 +16,12 @@ public class CharacterControll : MonoBehaviour
 
 
     public bool isDead { get; protected set; }
-    private bool isDamaged=false;
 
     public event Action OnDead;
+    private void Awake()
+    {
+        character_Skill = GetComponent<Character_Skill>();
+    }
 
     public void OnEnable()
     {
@@ -42,25 +44,26 @@ public class CharacterControll : MonoBehaviour
         // 패시브
         if (character_Skill.isSkillUse)
         {
-            character_Skill.isSkillUse = false;
             //TODO: 지나감 + 스킬 없어지는 애니메이션
+            character_Skill.isSkillUse = false;
+            return;
         }
         else
         {
-            Die();
             //TODO: 캐릭터 죽는 애니메이션
+            Die();
         }
     }
 
 
     private void OnCollisionEnter(Collision coll)
     {
-        if (coll.transform.tag == "")
+        if (coll.transform.tag == "Obs")
         {
             //TODO: tag가 데미지를 안받는 물체 일 경우 tag 변경
-
+            return;
         }
-        else if (coll.transform.tag == "")
+        else if (coll.transform.tag == "DieObs")
         {
             //TODO: tag가 데미지를 받는 물체 일 경우 tag 변경 + 스킬 여부 확인
             Check_Skill();

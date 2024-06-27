@@ -38,6 +38,7 @@ public class Character_Skill : MonoBehaviour
 
     private void Update()
     {
+        Skill_Input();
         time += Time.deltaTime;
         if (character_Data.isSkillPassive)
         {// 스킬이 패시브이면 스킬이 꺼져있을 경우 시간 지남에 따라 스킬 재가동
@@ -53,13 +54,21 @@ public class Character_Skill : MonoBehaviour
         {
             if (character_Data.isDefence)
             {
-                // 
+                // 무적상태일 경우 5초 후 스킬 꺼야함 
+                StartCoroutine(DefenceTimeCheck());
             }
             else
             {
-                //TODO: 그 장애물 삭제하는 능력 넣어야함
+                //TODO: 그 장애물 삭제하는 능력 넣어야함 : 大홍현
             }
         }
+    }
+
+    private IEnumerator DefenceTimeCheck()
+    {
+        isSkillUse = true;
+        yield return new WaitForSeconds(5f);
+        isSkillUse = false;
     }
 
     private void Skill_Input()
