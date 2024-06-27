@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb06b02b6f614c489ff2e267d51d7ae, type: 3}
-  m_Name: Character_Data_passive
+  m_Name: Player_Data_Delete
   m_EditorClassIdentifier: 
-  isSkillPassive: 1
+  isSkillPassive: 0
   isDefence: 0
-  isDelete: 0
+  isDelete: 1

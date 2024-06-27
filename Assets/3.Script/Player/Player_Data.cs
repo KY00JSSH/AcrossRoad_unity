@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject/Character_Data", fileName = "Character_Data")]
-public class Character_Data : ScriptableObject
+public class Player_Data : ScriptableObject
 {
     /*
     캐릭터 특성 추가

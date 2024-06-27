@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterControll : MonoBehaviour
+public class PlayerControll : MonoBehaviour
 {
 
     /*
@@ -13,7 +13,7 @@ public class CharacterControll : MonoBehaviour
         //TODO: 전체 애니메이션 안붙였음
      */
 
-    private Character_Skill character_Skill;
+    private Player_Skill character_Skill;
 
 
     public bool isDead { get; protected set; }
@@ -21,7 +21,7 @@ public class CharacterControll : MonoBehaviour
     public event Action OnDead;
     private void Awake()
     {
-        character_Skill = GetComponent<Character_Skill>();
+        character_Skill = GetComponent<Player_Skill>();
     }
 
     public void OnEnable()

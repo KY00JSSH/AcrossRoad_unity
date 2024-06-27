@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character_Skill : MonoBehaviour
+public class Player_Skill : MonoBehaviour
 {
 
     /*
@@ -19,7 +19,7 @@ public class Character_Skill : MonoBehaviour
 
 
     // 캐릭터 특성 받아오기
-    public Character_Data character_Data;
+    public Player_Data character_Data;
     private float skillUseTime;
     private float gaugeTime = 0f;
 
