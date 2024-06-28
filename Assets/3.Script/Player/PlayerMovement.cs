@@ -45,7 +45,9 @@ public class PlayerMovement : MonoBehaviour {
         // TODO : 충돌시 스프라이트 변경 또는 패배 이벤트 추가 바랍니다.
 
         if (collision.gameObject.CompareTag("Obs")||
-            collision.gameObject.CompareTag("Wall")) {
+            collision.gameObject.CompareTag("Wall") ||
+            collision.gameObject.CompareTag("DieObs") 
+            ) {
             // Obs 장애물과 충돌 시 이동 종료
             Debug.Log("COLLIDED");
             playerRigid.velocity = Vector3.zero;

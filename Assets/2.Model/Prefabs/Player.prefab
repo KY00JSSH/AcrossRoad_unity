@@ -9574,6 +9574,7 @@ GameObject:
   - component: {fileID: 9135328349437592757}
   - component: {fileID: 9092280278150427194}
   - component: {fileID: 5949910558074705267}
+  - component: {fileID: 1518172500202546294}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Player
@@ -9640,6 +9641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkillPassive: 0
+  isSkillUse: 0
+  gaugeTime: 0
 --- !u!95 &5949910558074705267
 Animator:
   serializedVersion: 3
@@ -9659,6 +9663,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1518172500202546294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090722075129473503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6b50deff539244093ddd17dd044283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9090753051732349288
 GameObject:
   m_ObjectHideFlags: 0
@@ -10158,6 +10174,7 @@ GameObject:
   - component: {fileID: 9135203133383415139}
   - component: {fileID: 9092280276328528359}
   - component: {fileID: 4478233641155238580}
+  - component: {fileID: 6573251799659583304}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Player
@@ -10228,6 +10245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkillPassive: 0
+  isSkillUse: 0
+  gaugeTime: 0
 --- !u!95 &4478233641155238580
 Animator:
   serializedVersion: 3
@@ -10247,6 +10267,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6573251799659583304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091444111825044231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6b50deff539244093ddd17dd044283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9091479239970338531
 GameObject:
   m_ObjectHideFlags: 0
@@ -10584,6 +10616,7 @@ GameObject:
   - component: {fileID: 9135957959342831794}
   - component: {fileID: 9092280277368791170}
   - component: {fileID: 4391373613103927409}
+  - component: {fileID: 3877805705274867333}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -10652,6 +10685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkillPassive: 0
+  isSkillUse: 0
+  gaugeTime: 0
 --- !u!95 &4391373613103927409
 Animator:
   serializedVersion: 3
@@ -10671,6 +10707,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3877805705274867333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091612488233593972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6b50deff539244093ddd17dd044283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9092070606111302589
 GameObject:
   m_ObjectHideFlags: 0
@@ -11086,7 +11134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9092280276560189560}
-  - component: {fileID: 9092280276560189562}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -11102,7 +11149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9092280276560189561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1288006247518298412}
@@ -11112,15 +11159,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9092280276560189562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9092280276560189561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6b50deff539244093ddd17dd044283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
