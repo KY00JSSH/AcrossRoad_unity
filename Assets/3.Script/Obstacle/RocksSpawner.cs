@@ -20,7 +20,8 @@ public class RocksSpawner : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        GameObject.FindObjectOfType<RocksSpawner>().TryGetComponent(out playerCon);
+        GameObject.FindObjectOfType<PlayerControll>().TryGetComponent(out playerCon);
+
         rocksList = new List<GameObject>();
         isDrop = false;
 
