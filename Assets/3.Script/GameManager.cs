@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public bool isGameover { get; private set; }
     public int Score = 0;
 
-    public bool isTimePassing; //일시정지를 위한 bool값 240628 13:16
+    public bool isTimePassing = true; //일시정지를 위한 bool값 240628 13:16
 
     private void Start()
     {

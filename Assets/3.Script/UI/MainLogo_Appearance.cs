@@ -11,38 +11,33 @@ public class MainLogo_Appearance : MonoBehaviour
 {
     public Image logoimage;
     public float fadeDuration = 2.0f;
-    private float elapsedTime = 0f;
-
-    RectTransform rect;
-
-    private void Awake()
+    public float elapsedTime = 0f;
+         
+    void Start()
     {
-        rect = GetComponent<RectTransform>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         ProgramStart_logo_Appear();
-
         GameStart_logo_Disapper();
     }
        
-    private void ProgramStart_logo_Appear()
-    {
-        rect.localScale = Vector3.one;
-
-        if (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-
-            float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-            // Clamp01 -> 알파값(투명도)을 0와 1 사이의 범위로 제한하는 것, 의도치 않게 0과 1 사이를 벗어나지 못하도록.
-
-            Color logoColor = logoimage.color;
-            logoColor.a = alpha;
-            logoimage.color = logoColor;
-        }
+    void ProgramStart_logo_Appear()
+    {      
+         if (elapsedTime < fadeDuration)
+         {
+              elapsedTime += Time.deltaTime;
+              
+              float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
+              // Clamp01 -> 알파값(투명도)을 0와 1 사이의 범위로 제한하는 것, 의도치 않게 0과 1 사이를 벗어나지 못하도록.
+              
+              Color logoColor = logoimage.color;
+              logoColor.a = alpha;
+              logoimage.color = logoColor;
+         }       
     }
 
     private void GameStart_logo_Disapper()
@@ -53,12 +48,13 @@ public class MainLogo_Appearance : MonoBehaviour
          //|| Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)
          Input.GetKeyDown(KeyCode.Space))
          {
-            rect.localScale = Vector3.zero;
+            gameObject.SetActive(false);
+
+            //rect.localScale = Vector3.zero;
 
             //Color logoColor = logoimage.color;
             //logoColor.a = 0;
             //logoimage.color = logoColor;             
          }
     }
-
 }
