@@ -13,7 +13,12 @@ public class RocksController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("-----player ");
+            spawner.DeactivateAllRocks();
+        }
+        else if(collision.gameObject.CompareTag("Ground"))
         {
             gameObject.SetActive(false);
             spawner.ActivateRandomNewRock();

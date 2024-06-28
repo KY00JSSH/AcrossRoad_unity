@@ -7,12 +7,12 @@ public class Restart_Button : MonoBehaviour
 {
     RectTransform rect;
 
-    bool isGameOver = true;
+    GameManager gm;
 
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
-        isGameOver = GetComponent<GameManager>();
+        FindObjectOfType<GameManager>().TryGetComponent(out gm);
     }
 
     // Start is called before the first frame update
@@ -24,15 +24,17 @@ public class Restart_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gm.isGameover)
+        {
+            Character_Die_Button_Appear();
+            Debug.Log("WOW");
+        }
     }
 
-    public void Character_Die_Logo_Appear() //게임오버되면 버튼 나타나게
+    public void Character_Die_Button_Appear() //게임오버되면 버튼 나타나게
     {
-        if (isGameOver)
-        {
             rect.localScale = Vector3.one;
-        }
+        
     }
 
     public void BackTo_MainScene()
