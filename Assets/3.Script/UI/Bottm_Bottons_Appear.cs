@@ -35,5 +35,25 @@ public class Bottm_Bottons_Appear : MonoBehaviour
             float t = Mathf.Clamp01(elapsedTime / slideDuration);
             buttonRectTransform.anchoredPosition = Vector2.Lerp(buttonStartPosition, buttonEndPosition, t);
         }
+
+        GameStart_Button_Disapper();
+    }
+
+    private void GameStart_Button_Disapper()
+    {
+        if (//Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
+            //|| Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
+            //|| Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
+            //|| Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)
+        Input.GetKeyDown(KeyCode.Space))
+        {
+            gameObject.SetActive(false);
+
+            //rect.localScale = Vector3.zero;
+
+            //Color logoColor = logoimage.color;
+            //logoColor.a = 0;
+            //logoimage.color = logoColor;             
+        }
     }
 }
