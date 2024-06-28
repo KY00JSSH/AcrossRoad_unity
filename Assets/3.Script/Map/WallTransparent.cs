@@ -14,17 +14,16 @@ public class WallTransparent : MonoBehaviour {
     }
 
     private void Update() {
-        if (transform.position.x.Equals(0)) 
-            distance = Mathf.Abs(transform.position.z - playerTransform.position.z);
-        else if (transform.position.z.Equals(0)) 
+        if (transform.position.x > 0)
             distance = Mathf.Abs(transform.position.x - playerTransform.position.x);
+        else if (transform.position.z < 0)
+            distance = Mathf.Abs(transform.position.z - playerTransform.position.z);
+        else distance = 100;
 
         materialColor = material.color;
         if (distance < 8) 
             materialColor.a = distance / 10;
-        else
-            materialColor.a = 1;
-        material.color = materialColor;
 
+        material.color = materialColor;
     }
 }

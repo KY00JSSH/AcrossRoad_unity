@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
         MovePlayer();
     }
 
+    private void LateUpdate() {
+    }
     public void MovePlayer() {
         float direction = -1f;
 
@@ -44,7 +46,8 @@ public class PlayerMovement : MonoBehaviour {
 
         // TODO : 충돌시 스프라이트 변경 또는 패배 이벤트 추가 바랍니다.
 
-        if (collision.gameObject.CompareTag("Obs")||
+        if (collision.gameObject.CompareTag("Obs") ||
+            collision.gameObject.CompareTag("DieObs") ||
             collision.gameObject.CompareTag("Wall")) {
             // Obs 장애물과 충돌 시 이동 종료
             Debug.Log("COLLIDED");
@@ -64,7 +67,8 @@ public class PlayerMovement : MonoBehaviour {
         while (isMove) {
             playerRigid.MovePosition(playerRigid.position +
                 (targetPosition - playerRigid.position) * Time.deltaTime * moveSpeed);
-            transform.parent.position = playerRigid.position;
+            if (transform.parent != null) transform.parent.position = playerRigid.position;
+
             yield return new WaitForFixedUpdate();
             if(playerRigid.position.Equals(targetPosition))
                 isMove = false;
