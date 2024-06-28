@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private Rigidbody playerRigid;
-    Vector3 targetPosition;
+    public Vector3 targetPosition;
     private float moveSpeed = 10f;
     private bool isMove = false;
 
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision) {
 
-        // TODO : 충돌시 스프라이트 변경 또는 패배 이벤트 추가 바랍니다.
+        //TODO: 충돌시 스프라이트 변경 또는 패배 이벤트 추가 바랍니다.
 
         if (collision.gameObject.CompareTag("Obs") ||
             collision.gameObject.CompareTag("DieObs") ||

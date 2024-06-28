@@ -9,12 +9,18 @@ public class RocksSpawner : MonoBehaviour
     public List<GameObject> rocksList;     //pooling list
 
     private GameObject player;              //현재 player
+    private PlayerMovement movement;
     public float range = 30f;              //랜덤 drop 반경 설정
     public bool isDrop = false;
+
+    private Vector3 lastPlayerPosition;
+
+    public float dropDistanceThreshold = 10f;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        GameObject.FindObjectOfType<PlayerMovement>().TryGetComponent(out movement);
         rocksList = new List<GameObject>();
         isDrop = false;
 
@@ -31,18 +37,28 @@ public class RocksSpawner : MonoBehaviour
 
     private void Start()
     {
-        DropRocksAroundPlayer();
+        lastPlayerPosition = player.transform.position; // 초기 Player 위치 저장
+        DropRocksAroundPlayer(); // 처음 시작할 때 한번 Drop
+    }
+
+    private void Update()
+    {
+        // Player가 일정 거리 이상 이동했는지 확인
+        if (Vector3.Distance(player.transform.position, lastPlayerPosition) >= dropDistanceThreshold)
+        {
+            DropRocksAroundPlayer();
+            lastPlayerPosition = player.transform.position; // 마지막 위치 갱신
+        }
     }
 
     public void DropRocksAroundPlayer()
     {
-        Vector3 playerPosition = player.transform.position;
-        if (Vector3.Distance(transform.position, playerPosition) <= range)  // player 현재 position range 범위 안에
+        if (Vector3.Distance(transform.position, movement.targetPosition) <= range)  // player 현재 position range 범위 안에
         {
             for (int i = 0; i < 10; i++)
             {
                 GameObject rock = rocksList[Random.Range(0, rocksList.Count)];
-                Vector3 randomPosition = GetRandomPosition(playerPosition);
+                Vector3 randomPosition = GetRandomPosition(movement.targetPosition);
                 rock.transform.position = randomPosition;
                 rock.SetActive(true);
             }
