@@ -12,6 +12,13 @@ public class MapPosition : MonoBehaviour {
     //    return new Vector3Int(coord.x * 2, 1, coord.z * 2);
     //}
 
+    public static Vector3 ToMapCoord(Vector3 position) {
+        return new Vector3Int(
+            (int)position.x / 2 * 2,
+            (int)position.y / 2 * 2,
+            (int)position.z / 2 * 2);
+    }
+
     public static Vector3Int ForwardPosition(Vector3 position, Vector3 forward) {
         return new Vector3Int(
             Mathf.RoundToInt(position.x + forward.x * 2) / 2 * 2,

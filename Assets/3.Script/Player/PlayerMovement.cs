@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour {
     private IEnumerator Move() {
         // targetPosition 까지 부드럽게 이동
         // DO NOT MODIFY
+
         while (isMove) {
             playerRigid.MovePosition(playerRigid.position +
                 (targetPosition - playerRigid.position) * Time.deltaTime * moveSpeed);
