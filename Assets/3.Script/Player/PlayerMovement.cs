@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private Rigidbody playerRigid;
+    private Animator player_Ani;
     Vector3 targetPosition;
     private float moveSpeed = 10f;
     private bool isMove = false;
 
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
+        player_Ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
     }
 
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
             // WASD 로 direction이 바뀐 경우만 이동
             if (direction != -1) {  
                 transform.rotation = Quaternion.Euler(0, direction, 0);
+                player_Ani.SetTrigger("IsJump");
 
                 targetPosition = MapPosition.ForwardPosition(playerRigid.position, transform.forward);
                 StopCoroutine(Move());
@@ -68,10 +71,12 @@ public class PlayerMovement : MonoBehaviour {
         while (isMove) {
             playerRigid.MovePosition(playerRigid.position +
                 (targetPosition - playerRigid.position) * Time.deltaTime * moveSpeed);
-
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForFixedUpdate();            
             if(playerRigid.position.Equals(targetPosition))
+            {
                 isMove = false;
+            }
+
             // rigid Position 값이 targetPosition에 정확히 equal 되지 않는 이슈. (플레이에 지장없음)
         }
     }
