@@ -15,13 +15,12 @@ public class Player_Skill3 : MonoBehaviour
 
     private RocksSpawner rocksSpawner;
 
-
     private PlayerControll playerControll;
 
     private void Awake()
     {
         GameObject.FindObjectOfType<RocksSpawner>().TryGetComponent(out rocksSpawner);
-
+                
         playerControll = GetComponent<PlayerControll>();
         activeObss = new List<GameObject>();
         Init();
@@ -74,7 +73,7 @@ public class Player_Skill3 : MonoBehaviour
 
         //TODO: DROP µÙ∑π¿Ã ¡÷±‚
 
-        //rocksSpawner.DropRocksAroundPlayer(playerPos);
+        //rocksSpawner.DropRocksAroundPlayer(playerPos);                                                                    
         isSkillUse = false;
     }
 }
