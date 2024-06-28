@@ -9,6 +9,7 @@ public class RocksSpawner : MonoBehaviour
     public List<GameObject> rocksList;     //pooling list
 
     private GameObject player;              //현재 player
+    private PlayerControll playerCon;
     public float range = 30f;              //랜덤 drop 반경 설정
     public bool isDrop = false;
 
@@ -19,12 +20,13 @@ public class RocksSpawner : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        GameObject.FindObjectOfType<RocksSpawner>().TryGetComponent(out playerCon);
         rocksList = new List<GameObject>();
         isDrop = false;
 
         for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < 5; j++)
             {
                 GameObject rock = Instantiate(rocks[i]); //5개 prefabs 5개씩 list에 담음
                 rock.SetActive(false);
@@ -35,6 +37,8 @@ public class RocksSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (playerCon.isDead) return;
+
         lastPlayerPosition = player.transform.position; // 초기 Player 위치 저장
         DropRocksAroundPlayer(); // 처음 시작할 때 한번 Drop
     }
@@ -83,6 +87,14 @@ public class RocksSpawner : MonoBehaviour
             GameObject randomRock = inactiveRocks[Random.Range(0, inactiveRocks.Count)];
             randomRock.transform.position = GetRandomPosition(player.transform.position);
             randomRock.SetActive(true);
+        }
+    }
+
+    public void DeactivateAllRocks()
+    {
+        foreach (GameObject rock in rocksList)
+        {
+            rock.SetActive(false);
         }
     }
 }
