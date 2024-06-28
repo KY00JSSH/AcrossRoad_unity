@@ -15,19 +15,32 @@ public class Player_Skill3 : MonoBehaviour
 
     private RocksSpawner rocksSpawner;
 
+
+    private PlayerControll playerControll;
+
     private void Awake()
     {
         GameObject.FindObjectOfType<RocksSpawner>().TryGetComponent(out rocksSpawner);
+
+        playerControll = GetComponent<PlayerControll>();
         activeObss = new List<GameObject>();
         Init();
     }
 
+
     private void Update()
     {
-        if (isSkillUse)
+
+        playerControll.SkillStart += RemoveObss;
+        playerControll.SkillStart -= RemoveObss;
+
+        /*
+         if (isSkillUse)
         {
             RemoveObss();
         }
+         */
+
     }
 
     private void Init() //기본 세팅 초기화

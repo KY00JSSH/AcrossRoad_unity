@@ -9,70 +9,120 @@ public class PlayerControll : MonoBehaviour
     /*
      *     1. 생존여부=> bool
     캐릭터 데이터에서 작성한 정보를 받아와서 오브젝트에 붙여서 실행할 스크립트    
-        //TODO: 재시도에서 활성화가 되는지 초기화가 되는지 확인해야함
-        //TODO: 전체 애니메이션 안붙였음
+        //TODO: 스킬 bool 제어 하고 그 값을 넘기면 해당 스킬 스크립트에서 사용함
      */
+    private Animator dieAni;
+    public bool isSkillPassive;
 
-    private Player_Skill character_Skill;
+    // 스킬 확인
+    public bool isSkillUse;
+    public float gaugeTime = 0f;
 
 
     public bool isDead { get; protected set; }
 
     public event Action OnDead;
+    public event Action SkillStart;
+
     private void Awake()
     {
-        character_Skill = GetComponent<Player_Skill>();
+        dieAni = GetComponent<Animator>();
+        gaugeTime = 55f;
+
     }
 
     public void OnEnable()
     {
         isDead = false;
     }
-    //스킬사용 여부 확인
 
-    public void Die()
+    private void Update()
     {
-        if (OnDead != null)
+        gaugeTime += Time.deltaTime;
+
+        if (gaugeTime>=20f)
         {
-            OnDead();
+            Debug.Log("스킬 사용 가능" + gaugeTime);
         }
-        //TODO: coll.transform.tag == "DieObs" 일 경우 비활성화 확인 => 다음 씬으로 넘어가야함
-        transform.gameObject.SetActive(false);
-        isDead = true;
+
+        if (isSkillPassive)
+        {
+            Skill_Passive_Input();
+        }
+        else 
+        {
+            Skill_Active_Input();
+        }
     }
 
     private void Check_Skill()
     {
-        // 스킬 사용 여부 확인하는 메소드
-        Debug.Log("Check_Skill 내부"+ character_Skill.isSkillUse);
-        // 패시브
-        if (character_Skill.isSkillUse)
+        if (isSkillUse)
         {
-            //TODO: 지나감 + 스킬 없어지는 애니메이션
-            if (character_Skill.character_Data.isSkillPassive)
+            Debug.Log(isSkillUse);
+            if (isSkillPassive)
             {
-                character_Skill.isSkillUse = false;
+                Debug.Log(isSkillPassive);
+                isSkillUse = false;
+                gaugeTime = 0f;
             }
             return;
         }
         else
         {
-            //TODO: 캐릭터 죽는 애니메이션
             Die();
         }
     }
 
+    // 스킬 입력 받는 부분
+    private void Skill_Active_Input()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime>=20f)
+        {
+            if (SkillStart != null)
+            {
+                SkillStart();
+            }
+            Debug.Log("스킬 사용");
+            isSkillUse = true;
+            gaugeTime = 0f;
+        }
+    }
+
+    private void Skill_Passive_Input()
+    {
+        if (isSkillPassive && gaugeTime >= 20f)
+        {
+            isSkillUse = true;
+        }
+    }
     // 장애물 tag통해서 캐릭터가 데미지를 받을지 안 받을지 결정
     private void OnCollisionEnter(Collision coll)
     {
-        //TODO: tag로 확인 가능하나 물체를 위아래 통하여 뚫고 움직임 수정필요함
         if (coll.transform.tag == "Obs")
         {
+            Debug.Log(coll.transform.tag);
             return;
         }
         else if (coll.transform.tag == "DieObs")
         {
+            Debug.Log(coll.transform.tag);
             Check_Skill();
         }
     }
+
+
+    public void Die()
+    {
+
+        Debug.Log("캐릭터 죽음");
+        if (OnDead != null)
+        {
+            OnDead();
+        }
+        isDead = true;
+        transform.gameObject.SetActive(false);
+    }
+
+
 }
