@@ -7,6 +7,9 @@ public class Player_Die : MonoBehaviour
 
     public ParticleSystem dieParticle;
     private PlayerControll playerControll;
+
+    GameManager gm;
+
     private void Start()
     {
         dieParticle.transform.position = transform.position;
@@ -36,5 +39,6 @@ public class Player_Die : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("안들어오나?");
         dieParticle.gameObject.SetActive(false);
+        gm.EndGame();
     }
 }
