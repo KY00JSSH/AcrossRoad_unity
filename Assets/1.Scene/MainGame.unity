@@ -481,6 +481,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &211241456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9088582858158679580, guid: 168d47e00dc8e9b4f968528ab9b390cc, type: 3}
+  m_PrefabInstance: {fileID: 410625472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &401630715
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +631,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401630715}
-  m_LocalRotation: {x: 0.3738421, y: -0.21212725, z: 0.08825216, w: 0.89858544}
+  m_LocalRotation: {x: 0.3738421, y: -0.21212724, z: 0.08825215, w: 0.89858544}
   m_LocalPosition: {x: 10, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -765,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9092280276560189561, guid: 168d47e00dc8e9b4f968528ab9b390cc, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 168d47e00dc8e9b4f968528ab9b390cc, type: 3}
@@ -868,7 +873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466052018}
-  m_LocalRotation: {x: 0.3738421, y: -0.21212725, z: 0.08825216, w: 0.89858544}
+  m_LocalRotation: {x: 0.3738421, y: -0.21212724, z: 0.08825215, w: 0.89858544}
   m_LocalPosition: {x: 6, y: 15, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -894,8 +899,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 485336925}
-  m_Follow: {fileID: 485336925}
+  m_LookAt: {fileID: 211241456}
+  m_Follow: {fileID: 211241456}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -911,11 +916,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 996169686}
---- !u!4 &485336925 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9088550850121688735, guid: 168d47e00dc8e9b4f968528ab9b390cc, type: 3}
-  m_PrefabInstance: {fileID: 410625472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488697466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2719,7 @@ MonoBehaviour:
   rocksList: []
   range: 5
   isDrop: 0
+  dropDistanceThreshold: 10
 --- !u!4 &1751726047
 Transform:
   m_ObjectHideFlags: 0
