@@ -74,7 +74,7 @@ public class Player_Skill3 : MonoBehaviour
 
         //TODO: DROP µÙ∑π¿Ã ¡÷±‚
 
-        rocksSpawner.DropRocksAroundPlayer(playerPos);
+        //rocksSpawner.DropRocksAroundPlayer(playerPos);
         isSkillUse = false;
     }
 }
