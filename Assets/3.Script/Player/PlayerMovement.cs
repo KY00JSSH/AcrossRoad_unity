@@ -14,10 +14,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         MovePlayer();
+        //Debug.Log($"Target : {targetPosition}");
     }
 
-    private void LateUpdate() {
-    }
+
     public void MovePlayer() {
         float direction = -1f;
 
@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour {
             // WASD 로 direction이 바뀐 경우만 이동
             if (direction != -1) {  
                 transform.rotation = Quaternion.Euler(0, direction, 0);
+
                 targetPosition = MapPosition.ForwardPosition(playerRigid.position, transform.forward);
                 StopCoroutine(Move());
                 StartCoroutine(Move());
@@ -67,7 +68,6 @@ public class PlayerMovement : MonoBehaviour {
         while (isMove) {
             playerRigid.MovePosition(playerRigid.position +
                 (targetPosition - playerRigid.position) * Time.deltaTime * moveSpeed);
-            if (transform.parent != null) transform.parent.position = playerRigid.position;
 
             yield return new WaitForFixedUpdate();
             if(playerRigid.position.Equals(targetPosition))
