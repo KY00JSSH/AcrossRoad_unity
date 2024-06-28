@@ -33,8 +33,7 @@ public class Restart_Button : MonoBehaviour
 
     public void Character_Die_Button_Appear() //게임오버되면 버튼 나타나게
     {
-            rect.localScale = Vector3.one;
-        
+            rect.localScale = Vector3.one;        
     }
 
     public void BackTo_MainScene()

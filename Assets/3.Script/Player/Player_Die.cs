@@ -29,8 +29,7 @@ public class Player_Die : MonoBehaviour
         }
 
     }
-
-    
+        
     public void Find_Active_Object()
     {
         // 상위 오브젝트에서 활성화되어있는 오브젝트를 찾음
