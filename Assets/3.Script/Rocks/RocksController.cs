@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class RocksController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private RocksSpawner spawner;
+
+    private void Awake()
     {
-        
+        GameObject.FindObjectOfType<RocksSpawner>().TryGetComponent(out spawner);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            gameObject.SetActive(false);
+            spawner.ActivateRandomNewRock();
+        }
     }
 }
