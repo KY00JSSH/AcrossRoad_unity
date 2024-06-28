@@ -26,18 +26,21 @@ public class Player_Skill3 : MonoBehaviour
         activeObss = new List<GameObject>();
         Init();
     }
-    private void Start()
-    {
-        playerControll.SkillStart += RemoveObss;
-    }
 
 
     private void Update()
     {
-        if (isSkillUse)
+
+        playerControll.SkillStart += RemoveObss;
+        playerControll.SkillStart -= RemoveObss;
+
+        /*
+         if (isSkillUse)
         {
             RemoveObss();
         }
+         */
+
     }
 
     private void Init() //기본 세팅 초기화

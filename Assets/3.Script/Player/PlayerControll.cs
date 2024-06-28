@@ -42,7 +42,7 @@ public class PlayerControll : MonoBehaviour
 
         if (gaugeTime>=20f)
         {
-            //Debug.Log("스킬 사용 가능");
+            Debug.Log("스킬 사용 가능" + gaugeTime);
         }
 
         if (isSkillPassive)
@@ -77,7 +77,7 @@ public class PlayerControll : MonoBehaviour
     // 스킬 입력 받는 부분
     private void Skill_Active_Input()
     {
-        if (Input.GetKeyDown(KeyCode.F) && isSkillUse == false && gaugeTime>=20f)
+        if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime>=20f)
         {
             if (SkillStart != null)
             {
