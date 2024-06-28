@@ -16,10 +16,13 @@ public class StopButton : MonoBehaviour
 
     RectTransform rect;
 
+    bool isGameOver = true;
+
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
         button = GetComponent<Button>();
+        isGameOver = GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -33,11 +36,20 @@ public class StopButton : MonoBehaviour
     void Update()
     {
         GameStart_Button_appear();
+        ToggleTime();
     }
 
-    private void ToggleTime()
+    public void ToggleTime()
     {
+        if(GameManager.Instance != null)
+        { 
         GameManager.Instance.isTimePassing = !GameManager.Instance.isTimePassing;
+        }
+        else
+        {
+            Debug.LogError("GameManager 인스턴스가 없습니다.");
+
+        }
     }
 
     public void GameStart_Button_appear()
@@ -67,4 +79,11 @@ public class StopButton : MonoBehaviour
         }
     }
 
+    public void Character_Die_Logo_Disappear() //게임오버되면 버튼 사라지게
+    {
+        if(isGameOver)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
