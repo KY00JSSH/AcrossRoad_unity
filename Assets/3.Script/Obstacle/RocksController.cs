@@ -13,9 +13,9 @@ public class RocksController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") )
         {
-            spawner.DeactivateAllRocks();
+            gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
