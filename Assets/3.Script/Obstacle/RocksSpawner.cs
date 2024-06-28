@@ -37,33 +37,36 @@ public class RocksSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (playerCon.isDead) return;
-
-        lastPlayerPosition = player.transform.position; // 초기 Player 위치 저장
-        DropRocksAroundPlayer(); // 처음 시작할 때 한번 Drop
+        if (Vector3.Distance(transform.position, player.transform.position) <= range)  // player 현재 position range 범위 안에
+        {
+            lastPlayerPosition = player.transform.position; // 초기 Player 위치 저장
+            DropRocksAroundPlayer(); // 처음 시작할 때 한번 Drop
+        }
     }
 
     private void Update()
     {
+        if (playerCon.isDead) return;
+
         // Player가 일정 거리 이상 이동했는지 확인
-        if (Vector3.Distance(player.transform.position, lastPlayerPosition) >= dropDistanceThreshold)
+        if (Time.frameCount % 6 == 0)
         {
-            DropRocksAroundPlayer();
-            lastPlayerPosition = player.transform.position; // 마지막 위치 갱신
+            if (Vector3.Distance(player.transform.position, lastPlayerPosition) >= dropDistanceThreshold)
+            {
+                DropRocksAroundPlayer();
+                lastPlayerPosition = player.transform.position; // 마지막 위치 갱신
+            }
         }
     }
 
     public void DropRocksAroundPlayer()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) <= range)  // player 현재 position range 범위 안에
+        for (int i = 0; i < 10; i++)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                GameObject rock = rocksList[Random.Range(0, rocksList.Count)];
-                Vector3 randomPosition = GetRandomPosition(player.transform.position);
-                rock.transform.position = randomPosition;
-                rock.SetActive(true);
-            }
+            GameObject rock = rocksList[Random.Range(0, rocksList.Count)];
+            Vector3 randomPosition = GetRandomPosition(player.transform.position);
+            rock.transform.position = randomPosition;
+            rock.SetActive(true);
         }
     }
 
@@ -81,6 +84,8 @@ public class RocksSpawner : MonoBehaviour
 
     public void ActivateRandomNewRock()
     {
+        if (playerCon.isDead) return;  // Player와 충돌했으면 새로운 Rock 생성 방지
+
         List<GameObject> inactiveRocks = rocksList.FindAll(rock => !rock.activeInHierarchy);
         if (inactiveRocks.Count > 0)
         {
