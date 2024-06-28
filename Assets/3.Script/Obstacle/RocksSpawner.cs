@@ -9,7 +9,6 @@ public class RocksSpawner : MonoBehaviour
     public List<GameObject> rocksList;     //pooling list
 
     private GameObject player;              //현재 player
-    private PlayerMovement movement;
     public float range = 30f;              //랜덤 drop 반경 설정
     public bool isDrop = false;
 
@@ -20,7 +19,6 @@ public class RocksSpawner : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        GameObject.FindObjectOfType<PlayerMovement>().TryGetComponent(out movement);
         rocksList = new List<GameObject>();
         isDrop = false;
 
@@ -53,12 +51,12 @@ public class RocksSpawner : MonoBehaviour
 
     public void DropRocksAroundPlayer()
     {
-        if (Vector3.Distance(transform.position, movement.targetPosition) <= range)  // player 현재 position range 범위 안에
+        if (Vector3.Distance(transform.position, player.transform.position) <= range)  // player 현재 position range 범위 안에
         {
             for (int i = 0; i < 10; i++)
             {
                 GameObject rock = rocksList[Random.Range(0, rocksList.Count)];
-                Vector3 randomPosition = GetRandomPosition(movement.targetPosition);
+                Vector3 randomPosition = GetRandomPosition(player.transform.position);
                 rock.transform.position = randomPosition;
                 rock.SetActive(true);
             }
