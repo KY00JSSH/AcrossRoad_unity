@@ -2,15 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
+    private Animator player_ani;
     private Rigidbody playerRigid;
     private Vector3 targetPosition;
     private float moveDistance = 2f, moveSpeed = 15f;
 
     private void Awake() {
         TryGetComponent(out playerRigid);
+        // animator 추가
+        GameObject activeObj = FindActiveChild(gameObject);
+        if (activeObj != null)
+            player_ani = activeObj.GetComponent<Animator>();
     }
 
+
+    GameObject FindActiveChild(GameObject parent)
+    {
+        foreach (Transform child in parent.transform)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
     private void Start() {
         targetPosition = transform.position;
     }
@@ -22,18 +40,26 @@ public class PlayerMovement : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             targetPosition = transform.position + transform.forward * moveDistance;
+            player_ani.SetInteger("Walk", 1);
         }
         else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
             transform.rotation = Quaternion.Euler(0f, -90f, 0f);
             targetPosition = transform.position + transform.forward * moveDistance;
+            player_ani.SetInteger("Walk", 1);
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             targetPosition = transform.position + transform.forward * moveDistance;
+            player_ani.SetInteger("Walk", 1);
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             transform.rotation = Quaternion.Euler(0f, 90f, 0f);
             targetPosition = transform.position + transform.forward * moveDistance;
+            player_ani.SetInteger("Walk", 1);
+        }
+        else
+        {
+            player_ani.SetInteger("Walk", 0);
         }
 
         // targetPosition ( forward * moveDistace) 를 향해 moveSpeed 속도로 이동
