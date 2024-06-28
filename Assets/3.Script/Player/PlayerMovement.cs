@@ -1,55 +1,74 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private Rigidbody playerRigid;
-    private float moveDistance = 2f, moveSpeed = 5f;
+    Vector3 targetPosition;
+    private float moveSpeed = 10f;
     private bool isMove = false;
+
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
+        targetPosition = playerRigid.position;
     }
-
 
     private void Update() {
-        KeyCode InputKey = CheckInputMove();
-        if (isMove) {
-            Debug.Log("WOW");
-            MovePlayer(InputKey);
-        }
-        // isMove flag 조건 : 목표 지점에 도달할 때까지 or Collide 충돌하기 전 까지
+        MovePlayer();
+        Debug.Log($"Target : {targetPosition}");
     }
 
-    public void MovePlayer(KeyCode key) {
-        float direction = 0f;
-        switch (key) {
-            case KeyCode.W: direction = 0f; break;
-            case KeyCode.A: direction = -90f; break;
-            case KeyCode.S: direction = 180f; break;
-            case KeyCode.D: direction = 90f; break;
-        }
-        playerRigid.rotation = Quaternion.Euler(0, direction, 0);
-        isMove = false;
+    public void MovePlayer() {
+        float direction = -1f;
 
-    }
-
-    public KeyCode CheckInputMove() {
-        
+        // 키 입력 유효성
         if (Input.anyKeyDown) {
             isMove = true;
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) 
-                return KeyCode.W;
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                direction = 0f;
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                return KeyCode.A;
+                direction = -90f;
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-                return KeyCode.S;
+                direction = 180f;
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                return KeyCode.D;
+                direction = 90f;
+
+            // WASD 로 direction이 바뀐 경우만 이동
+            if (direction != -1) {  
+                transform.rotation = Quaternion.Euler(0, direction, 0);
+                targetPosition = MapPosition.ForwardPosition(playerRigid.position, transform.forward);
+                StopCoroutine(Move());
+                StartCoroutine(Move());
+            }
         }
-        isMove = false;
-        return KeyCode.None;
+    }
+    private void OnCollisionEnter(Collision collision) {
+
+        // TODO : 충돌시 스프라이트 변경 또는 패배 이벤트 추가 바랍니다.
+
+        if (collision.gameObject.CompareTag("Obs")) {
+            // Obs 장애물과 충돌 시 이동 종료
+            Debug.Log("COLLIDED");
+            playerRigid.velocity = Vector3.zero;
+            targetPosition = MapPosition.ForwardPosition(playerRigid.position, -transform.forward);
+            
+            // isMove = false;
+            // Obs 장애물 충돌시 이동 종료하면 pos 값이 2의 배수가 아니라 1.5 등 중간 실수에 멈추는 이슈
+            // 해결 위해서 충돌시 targetPosition을 진행 방향의 이전 타일로 설정하도록 구현
+        }
     }
 
+    private IEnumerator Move() {
+        // targetPosition 까지 부드럽게 이동
+        // DO NOT MODIFY
+        while (isMove) {
+            playerRigid.MovePosition(playerRigid.position +
+                (targetPosition - playerRigid.position) * Time.deltaTime * moveSpeed);
+            yield return new WaitForFixedUpdate();
+            if(playerRigid.position.Equals(targetPosition))
+                isMove = false;
+            // rigid Position 값이 targetPosition에 정확히 equal 되지 않는 이슈. (플레이에 지장없음)
+        }
+    }
 
     /*
      * 1. 방향키를 누르면
@@ -57,13 +76,9 @@ public class PlayerMovement : MonoBehaviour {
      * 3. 맵 좌표를 계산하고
      * 4. 코루틴으로 해당 좌표 이동시까지 rigid MovePosition
      * 5. 이동 중에는 bool Flag true 로 하고
-     * 6. 이동이 끝날때는 Flag false
+     * 6. 이동이 끝날때는 Flag false (이슈 있음)
      * 7. 중간에 CollideEnter 할 경우에도 Flag false
      * 
      */
 
-    private void OnCollisionEnter(Collision collision) {
-        playerRigid.velocity = Vector3.zero;
-        isMove = false;
-    }
 }
