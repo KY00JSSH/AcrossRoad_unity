@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-
     private void Awake()
     {
         if (Instance == null)
@@ -25,8 +24,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public bool isGameover { get; private set; }
     public int Score = 0;
+
+    public bool isTimePassing;
 
     private void Start()
     {
@@ -47,4 +49,10 @@ public class GameManager : MonoBehaviour
             // UIController.instance.updateScore(Score);
         }
     }
+
+    private void Update()
+    {
+        Time.timeScale = isTimePassing ? 1 : 0; //일시정지 버튼 토글
+    }
+
 }
