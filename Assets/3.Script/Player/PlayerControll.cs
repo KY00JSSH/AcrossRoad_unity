@@ -40,11 +40,6 @@ public class PlayerControll : MonoBehaviour
     {
         gaugeTime += Time.deltaTime;
 
-        if (gaugeTime>=20f)
-        {
-            Debug.Log("스킬 사용 가능" + gaugeTime);
-        }
-
         if (isSkillPassive)
         {
             Skill_Passive_Input();
