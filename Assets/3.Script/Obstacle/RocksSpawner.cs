@@ -55,7 +55,10 @@ public class RocksSpawner : MonoBehaviour
         float randomZ = Random.Range(-range, range);
         float randomY = Random.Range(playerPosition.y + 10f, playerPosition.y + 50f);
 
-        return new Vector3(playerPosition.x + randomX, randomY, playerPosition.z + randomZ);
+        Vector3 randPos = new Vector3(playerPosition.x + randomX, randomY, playerPosition.z + randomZ);
+        Vector3 randPosToMap = MapPosition.ToMapCoord(randPos);
+
+        return randPosToMap;
     }
 
     public void ActivateRandomNewRock()
