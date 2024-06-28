@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         MovePlayer();
-        Debug.Log($"Target : {targetPosition}");
+        //Debug.Log($"Target : {targetPosition}");
     }
 
     public void MovePlayer() {

@@ -42,7 +42,7 @@ public class PlayerControll : MonoBehaviour
 
         if (gaugeTime>=20f)
         {
-            Debug.Log("스킬 사용 가능");
+            //Debug.Log("스킬 사용 가능");
         }
 
         if (isSkillPassive)
