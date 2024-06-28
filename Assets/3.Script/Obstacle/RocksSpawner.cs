@@ -29,14 +29,14 @@ public class RocksSpawner : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        Vector3 playerPosition = player.transform.position;
-        DropRocksAroundPlayer(playerPosition);
+        DropRocksAroundPlayer();
     }
 
-    public void DropRocksAroundPlayer(Vector3 playerPosition)
+    public void DropRocksAroundPlayer()
     {
+        Vector3 playerPosition = player.transform.position;
         if (Vector3.Distance(transform.position, playerPosition) <= range)  // player 현재 position range 범위 안에
         {
             for (int i = 0; i < 10; i++)
@@ -55,7 +55,10 @@ public class RocksSpawner : MonoBehaviour
         float randomZ = Random.Range(-range, range);
         float randomY = Random.Range(playerPosition.y + 10f, playerPosition.y + 50f);
 
-        return new Vector3(playerPosition.x + randomX, randomY, playerPosition.z + randomZ);
+        Vector3 randPos = new Vector3(playerPosition.x + randomX, randomY, playerPosition.z + randomZ);
+        Vector3 randPosToMap = MapPosition.ToMapCoord(randPos);
+
+        return randPosToMap;
     }
 
     public void ActivateRandomNewRock()
