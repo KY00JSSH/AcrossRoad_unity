@@ -14,21 +14,17 @@ public class Player_Die : MonoBehaviour
         playerControll = GetComponentInChildren<PlayerControll>();
         if (playerControll != null)
         {
-            Debug.Log("playerControll null 아님");
             playerControll.OnDead += Player_Die_Check;
-
         }
         else
         {
             Debug.Log("playerControll null");
-
         }
 
     }
 
     public void Player_Die_Check()
     {
-        Debug.Log("캐릭터 죽은 후 호출");
         StartCoroutine(DieParticle());
     }
 

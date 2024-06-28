@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1585349779547952, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4333491988720984, guid: aa2d47f95b34fbe4d9cbe095f13585b5, type: 3}
       propertyPath: m_RootOrder
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f320d61bb97bab468dd4f656902e330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkillUse: 0
 --- !u!1 &801967156
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +589,9 @@ MonoBehaviour:
   - {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
   - {fileID: 2684695994064820914, guid: 86509780b07285a44a69b1eb089a3ed1, type: 3}
   - {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
+  rocksList: []
   range: 30
+  isDrop: 0
 --- !u!4 &1543915192
 Transform:
   m_ObjectHideFlags: 0
