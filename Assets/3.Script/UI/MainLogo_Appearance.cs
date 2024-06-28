@@ -11,8 +11,14 @@ public class MainLogo_Appearance : MonoBehaviour
 {
     public Image logoimage;
     public float fadeDuration = 2.0f;
-
     private float elapsedTime = 0f;
+
+    RectTransform rect;
+
+    private void Awake()
+    {
+        rect = GetComponent<RectTransform>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,8 +28,10 @@ public class MainLogo_Appearance : MonoBehaviour
         GameStart_logo_Disapper();
     }
        
-    void ProgramStart_logo_Appear()
+    private void ProgramStart_logo_Appear()
     {
+        rect.localScale = Vector3.one;
+
         if (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -37,18 +45,19 @@ public class MainLogo_Appearance : MonoBehaviour
         }
     }
 
-    void GameStart_logo_Disapper()
+    private void GameStart_logo_Disapper()
     {       
          if (//Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
          //|| Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
          //|| Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
          //|| Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)
-         Input.GetKeyDown(KeyCode.Space)            
-         )
-         {                           
-              Color logoColor = logoimage.color;
-              logoColor.a = 0;
-              logoimage.color = logoColor;             
+         Input.GetKeyDown(KeyCode.Space))
+         {
+            rect.localScale = Vector3.zero;
+
+            //Color logoColor = logoimage.color;
+            //logoColor.a = 0;
+            //logoimage.color = logoColor;             
          }
     }
 
