@@ -38,6 +38,6 @@ public class Restart_Button : MonoBehaviour
 
     public void BackTo_MainScene()
     {
-        SceneManager.LoadScene(""); //"" <- 안에 메인 게임씬 이름 넣기
+        SceneManager.LoadScene("MainGame"); //"" <- 안에 메인 게임씬 이름 넣기
     }
 }

@@ -8,7 +8,7 @@ public class Player_Die : MonoBehaviour
     public ParticleSystem dieParticle;
     private PlayerControll playerControll;
 
-    GameManager gm;
+    
     [SerializeField] GameObject activeObj;
 
 
@@ -53,6 +53,6 @@ public class Player_Die : MonoBehaviour
         dieParticle.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         dieParticle.gameObject.SetActive(false);
-        gm.EndGame();
+        
     }
 }
