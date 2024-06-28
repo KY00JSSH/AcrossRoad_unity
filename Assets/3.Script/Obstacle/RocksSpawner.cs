@@ -47,7 +47,11 @@ public class RocksSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (playerCon.isDead) return;
+        if (playerCon.isDead)
+        {
+            DeactivateAllRocks();
+            return;
+        }
 
         // Player가 일정 거리 이상 이동했는지 확인
         if (Time.frameCount % 6 == 0)
