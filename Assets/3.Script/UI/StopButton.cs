@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class StopButton : MonoBehaviour
 {
-    private Button button;
-
     //게임시작시 일시정지 버튼 등장과
     //게임종료시(플레이어 죽음) 일시정지 버튼 사라짐을 위한 스크립트
+
+    private Button button;
 
     public Image logoimage;
     public float fadeDuration = 2.0f;
@@ -22,47 +22,44 @@ public class StopButton : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
         button = GetComponent<Button>();
-        isGameOver = GetComponent<GameManager>();
+        //isGameOver = GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rect.localScale = Vector3.zero;
         button.onClick.AddListener(ToggleTime);
-    }     
-
-    // Update is called once per frame
-    void Update()
-    {
-        GameStart_Button_appear();
-        ToggleTime();
     }
 
-    public void ToggleTime()
+    // Update is called once per frame
+    private void Update()
+    {
+        GameStart_Button_appear();
+        //ToggleTime();
+    }
+
+    private void ToggleTime()
     {
         if(GameManager.Instance != null)
         { 
-        GameManager.Instance.isTimePassing = !GameManager.Instance.isTimePassing;
+            GameManager.Instance.isTimePassing = !GameManager.Instance.isTimePassing;
         }
         else
         {
             Debug.LogError("GameManager 인스턴스가 없습니다.");
-
         }
     }
 
     public void GameStart_Button_appear()
     {        
-        if (//Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
-            //|| Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
-            //|| Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
-            //|| Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)
-         Input.GetKeyDown(KeyCode.Space)
-         )
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
+            || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
+            || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
+            || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+         //Input.GetKeyDown(KeyCode.Space))
         {
             rect.localScale = Vector3.one;
-
             /*
             if (elapsedTime < fadeDuration)
             {
