@@ -10,7 +10,7 @@ public class ObsSpawner : MonoBehaviour
 
     protected PlayerControll playerCon;       //playereController
 
-    protected void initObsticle()
+    virtual protected void initObsticle()
     {
         GameObject.FindObjectOfType<PlayerControll>().TryGetComponent(out playerCon);
 
