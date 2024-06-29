@@ -9,6 +9,8 @@ public class PlayerControll : MonoBehaviour
      *     1. 생존여부=> bool
     캐릭터 데이터에서 작성한 정보를 받아와서 오브젝트에 붙여서 실행할 스크립트    
         //TODO: 스킬 bool 제어 하고 그 값을 넘기면 해당 스킬 스크립트에서 사용함
+
+    2. 스킬사용시 방어막 활성화
      */
 
     private Animator dieAni;
@@ -17,6 +19,8 @@ public class PlayerControll : MonoBehaviour
     // 스킬 확인
     public bool isSkillUse;
     public float gaugeTime = 0f;
+    public GameObject Field;
+
 
     public bool isDead { get; protected set; }
 
@@ -37,13 +41,13 @@ public class PlayerControll : MonoBehaviour
     private void Update()
     {
         gaugeTime += Time.deltaTime;
-
+        Field.transform.position = transform.position;
         if (isSkillPassive)
         {
             Skill_Passive_Input();
         }
         else 
-        {
+        {           
             Skill_Active_Input();
         }
     }
@@ -57,6 +61,7 @@ public class PlayerControll : MonoBehaviour
             {
                 Debug.Log(isSkillPassive);
                 isSkillUse = false;
+                Field.SetActive(false);
                 gaugeTime = 0f;
             }
             return;
@@ -70,7 +75,7 @@ public class PlayerControll : MonoBehaviour
     // 스킬 입력 받는 부분
     private void Skill_Active_Input()
     {
-        if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime>=20f)
+        if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime>=5f)
         {
             if (SkillStart != null)
             {
@@ -78,15 +83,17 @@ public class PlayerControll : MonoBehaviour
             }
             Debug.Log("스킬 사용");
             isSkillUse = true;
+            Field.SetActive(true);
             gaugeTime = 0f;
         }
     }
 
     private void Skill_Passive_Input()
     {
-        if (isSkillPassive && gaugeTime >= 20f)
+        if (isSkillPassive && gaugeTime >= 5f)
         {
             isSkillUse = true;
+            Field.SetActive(true);
         }
     }
     // 장애물 tag통해서 캐릭터가 데미지를 받을지 안 받을지 결정
@@ -113,5 +120,6 @@ public class PlayerControll : MonoBehaviour
         }
         isDead = true;
         transform.gameObject.SetActive(false);
+        Field.SetActive(false);
     }
 }
