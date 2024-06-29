@@ -7,16 +7,19 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 targetPosition;
     private float moveSpeed = 10f;
     private bool isMove = false;
+    public int score;
 
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
         player_ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
+        score = 0;
     }
 
     private void Update() {
         MovePlayer();
         //Debug.Log($"Target : {targetPosition}");
+        score = Mathf.Max(Mathf.RoundToInt(transform.position.z) / 2 , score);
     }
 
 
