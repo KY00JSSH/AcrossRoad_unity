@@ -14,4 +14,5 @@ public class PlayerCamera : MonoBehaviour {
         camera.Follow = playerTransform;
         camera.LookAt = playerTransform;
     }
+
 }

@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private Rigidbody playerRigid;
+    private Animator player_ani;
     private Vector3 targetPosition;
     private float moveSpeed = 10f;
     private bool isMove = false;
 
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
+        player_ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
     }
 
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
             // WASD 로 direction이 바뀐 경우만 이동
             if (direction != -1) {  
                 transform.rotation = Quaternion.Euler(0, direction, 0);
-
+                player_ani.SetTrigger("IsJump");
                 targetPosition = MapPosition.ForwardPosition(playerRigid.position, transform.forward);
                 StopCoroutine(Move());
                 StartCoroutine(Move());
