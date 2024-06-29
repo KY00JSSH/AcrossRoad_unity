@@ -54,7 +54,7 @@ public class Player_Skill3 : MonoBehaviour
         //active인 obss들 중에서 현재 position 의 반경에 있는 object false
         //false되면 다음 obss들 새로운 위치에서 true
 
-        foreach (GameObject rock in rocksSpawner.rocksList)
+        foreach (GameObject rock in rocksSpawner.obsList)
         {
             if (rock.activeInHierarchy)
             {
