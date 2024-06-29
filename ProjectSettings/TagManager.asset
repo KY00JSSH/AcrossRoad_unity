@@ -36,9 +36,9 @@ TagManager:
   - 
   - tilePark
   - tileRoad
-  - 
-  - 
-  - 
+  - obsCabin
+  - obsTree
+  - obsTreeChop
   - 
   - 
   m_SortingLayers:

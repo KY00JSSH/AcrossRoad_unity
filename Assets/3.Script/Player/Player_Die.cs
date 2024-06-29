@@ -8,7 +8,7 @@ public class Player_Die : MonoBehaviour
     public ParticleSystem dieParticle;
     private PlayerControll playerControll;
 
-    GameManager gm;
+    
     [SerializeField] GameObject activeObj;
 
 
@@ -29,8 +29,7 @@ public class Player_Die : MonoBehaviour
         }
 
     }
-
-    
+        
     public void Find_Active_Object()
     {
         // 상위 오브젝트에서 활성화되어있는 오브젝트를 찾음
@@ -54,6 +53,6 @@ public class Player_Die : MonoBehaviour
         dieParticle.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         dieParticle.gameObject.SetActive(false);
-        gm.EndGame();
+        
     }
 }
