@@ -12,14 +12,27 @@ public class Bottm_Bottons_Appear : MonoBehaviour
     public Vector2 buttonStartPosition; //버튼이 올라오기 전 위치
     public Vector2 buttonEndPosition; //버튼이 올라온 후 위치
 
-    private float elapsedTime = 0f; 
+    Canvas canvas; // = FindObjectOfType<Canvas>();   
+    RectTransform canvasRectTransform;
+
+    private float elapsedTime = 0f;
+
+    private void Awake()
+    {
+        canvas = FindObjectOfType<Canvas>();
+        if(canvas != null)
+        {
+            canvasRectTransform = canvas.GetComponent<RectTransform>();
+        }
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
+        //RectTransform canvasRectTransform = canvas.GetComponent<RectTransform>();
         float bottomButtonHeight = buttonRectTransform.rect.height;
-
-        buttonStartPosition = new Vector2(0, bottomButtonHeight * -2);
+        
+        buttonStartPosition = new Vector2(0, bottomButtonHeight * -5); //Y좌표 = Bottom_Buttons의 높이 * n 에서 올라옴
 
         buttonRectTransform.anchoredPosition = buttonStartPosition;
     }
@@ -27,7 +40,7 @@ public class Bottm_Bottons_Appear : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        buttonEndPosition = new Vector2(0, 0);
+        buttonEndPosition = new Vector2(0, -295);
 
         if(elapsedTime < slideDuration)
         {
