@@ -23,10 +23,17 @@ public class PlayerControll : MonoBehaviour
     public event Action OnDead;
     public event Action SkillStart;
 
+    private StopButton stopButton; //일시정지 버튼을 위함 - 240629 19:10 지훈 작성
+
     private void Awake()
     {
         dieAni = GetComponent<Animator>();
         gaugeTime = 55f;
+    }
+
+    private void Start() //일시정지 버튼을 위함 - 240629 19:10 지훈 작성
+    {
+        stopButton = FindObjectOfType<StopButton>();
     }
 
     public void OnEnable()
@@ -113,5 +120,8 @@ public class PlayerControll : MonoBehaviour
         }
         isDead = true;
         transform.gameObject.SetActive(false);
+        
+        stopButton?.Character_Die_Button_Disappear(); //일시정지 버튼을 위함 - 240629 19:10 지훈 작성
+
     }
 }
