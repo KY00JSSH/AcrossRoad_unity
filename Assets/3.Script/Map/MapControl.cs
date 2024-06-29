@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO.Pipes;
+using UnityEditor;
 using UnityEngine;
 
 public enum Tile {
@@ -6,7 +8,7 @@ public enum Tile {
     Road
 }
 
-public class MapScroll : MonoBehaviour {
+public class MapControl : MonoBehaviour {
     [SerializeField] private GameObject[] TilePrefebs;
     private List<GameObject> CreatedTiles = new List<GameObject>();
     private GameObject RecentCreatedTile;
@@ -15,6 +17,28 @@ public class MapScroll : MonoBehaviour {
 
     private int minCreateLength = 1, maxCreateLength = 6;
     [SerializeField] private int visibleTileCount = 35;
+
+    public static List<Vector3> GetAllCarSpawnPosition() {
+        // 맵 상 존재하는 모든 도로 타일의 자동차 생성 위치를 구합니다.
+        Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        List<GameObject> CreatedTiles = FindObjectOfType<MapControl>().CreatedTiles;
+        List<Vector3> positions = new List<Vector3>();
+        int tileDistance = 16;
+
+        foreach (GameObject each in CreatedTiles) {
+            if (each.layer.Equals(26) &&        // tileRoad layerIndex = 26
+                Mathf.Abs(each.transform.position.z - playerTransform.position.z) < tileDistance) {    
+                int direction = each.GetComponent<MapTileControl>().direction * 2 - 1;
+                Vector3 spawnPos = new Vector3(
+                    (each.transform.localScale.x - 1) * direction,
+                    each.transform.position.y, each.transform.position.z);
+                positions.Add(spawnPos);
+            }
+        }
+        return positions;
+    }
+
+
 
     private void Awake() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -34,6 +58,7 @@ public class MapScroll : MonoBehaviour {
         // 앞의 타일 개수 < 화면에 보이는 타일 개수 = 새로 생성
         int CurrentCount = Mathf.RoundToInt(playerTransform.position.z / 2f);
         if (CreatedCount - CurrentCount < visibleTileCount) CreateRandomTile();
+        GetAllCarSpawnPosition();
     }
 
     public void CreateRandomTile() {
