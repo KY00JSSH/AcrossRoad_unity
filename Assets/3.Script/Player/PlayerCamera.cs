@@ -14,4 +14,8 @@ public class PlayerCamera : MonoBehaviour {
         camera.Follow = playerTransform;
         camera.LookAt = playerTransform;
     }
+
+    private void Update() {
+        Debug.Log(transform.position);
+    }
 }
