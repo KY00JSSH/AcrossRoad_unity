@@ -5,19 +5,18 @@ using UnityEngine;
 
 public class PlayerControll : MonoBehaviour
 {
-
     /*
      *     1. 생존여부=> bool
     캐릭터 데이터에서 작성한 정보를 받아와서 오브젝트에 붙여서 실행할 스크립트    
         //TODO: 스킬 bool 제어 하고 그 값을 넘기면 해당 스킬 스크립트에서 사용함
      */
+
     private Animator dieAni;
     public bool isSkillPassive;
 
     // 스킬 확인
     public bool isSkillUse;
     public float gaugeTime = 0f;
-
 
     public bool isDead { get; protected set; }
 
@@ -28,7 +27,6 @@ public class PlayerControll : MonoBehaviour
     {
         dieAni = GetComponent<Animator>();
         gaugeTime = 55f;
-
     }
 
     public void OnEnable()
@@ -106,10 +104,8 @@ public class PlayerControll : MonoBehaviour
         }
     }
 
-
     public void Die()
     {
-
         Debug.Log("캐릭터 죽음");
         if (OnDead != null)
         {
@@ -118,6 +114,4 @@ public class PlayerControll : MonoBehaviour
         isDead = true;
         transform.gameObject.SetActive(false);
     }
-
-
 }
