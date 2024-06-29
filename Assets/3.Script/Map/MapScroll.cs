@@ -14,7 +14,7 @@ public class MapScroll : MonoBehaviour {
     private int CreatedCount = 0;
 
     private int minCreateLength = 1, maxCreateLength = 6;
-    [SerializeField] private int visibleTileCount = 20;
+    [SerializeField] private int visibleTileCount = 35;
 
     private void Awake() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;

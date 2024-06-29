@@ -17,5 +17,8 @@ public class PlayerCamera : MonoBehaviour {
 
     private void Update() {
         Debug.Log(transform.position);
+        Debug.Log(transform.localRotation);
+        // x 3 y 21
+        // x 17 y 21
     }
 }
