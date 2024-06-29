@@ -33,6 +33,5 @@ public class Player_Skill2 : MonoBehaviour
         Debug.Log("스킬 꺼짐");
         playerControll.gaugeTime = 0f; // 스킬이 꺼지고 게이지 시간 초기화
     }
-    
 
 }
