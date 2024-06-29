@@ -17,6 +17,7 @@ public class MapControl : MonoBehaviour {
 
     private int minCreateLength = 1, maxCreateLength = 6;
     [SerializeField] private int visibleTileCount = 35;
+    private MapObstacleSpawn obstacleSpawn;
 
     public static List<Vector3> GetAllCarSpawnPosition() {
         // 맵 상 존재하는 모든 도로 타일의 자동차 생성 위치를 구합니다.
@@ -40,6 +41,7 @@ public class MapControl : MonoBehaviour {
 
     private void Awake() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        TryGetComponent(out obstacleSpawn);
     }
 
     private void Start() {
@@ -82,6 +84,9 @@ public class MapControl : MonoBehaviour {
     public void CreateTile(GameObject tile, Vector3 position) {
         // CreateTiles에 등록된 타일 중 비활성화 타일을 꺼내 씁니다.
         CreatedCount++;
+
+        if(tile.layer.Equals(25))  // tileRoad layerIndex = 25
+            obstacleSpawn.Spawn(position);
 
         foreach(GameObject each in CreatedTiles) {
             if (each.layer.Equals(tile.layer)) {
