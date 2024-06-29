@@ -38,8 +38,6 @@ public class MapControl : MonoBehaviour {
         return positions;
     }
 
-
-
     private void Awake() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
