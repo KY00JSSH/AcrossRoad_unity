@@ -8,6 +8,7 @@ TagManager:
   - DieObs
   - Ground
   - Wall
+  - Field
   layers:
   - Default
   - TransparentFX

@@ -15256,6 +15256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControll: {fileID: 0}
+  skillEffect: {fileID: 0}
 --- !u!114 &8759069511465851245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15707,8 +15708,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 0
+  SkillButton: {fileID: 0}
+  ButtonSprite: {fileID: 0}
   isSkillUse: 0
+  isSkillPassive: 0
   gaugeTime: 0
 --- !u!114 &9092280277767734594
 MonoBehaviour:
@@ -15722,8 +15725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 1
+  SkillButton: {fileID: 0}
+  ButtonSprite: {fileID: 0}
   isSkillUse: 0
+  isSkillPassive: 1
   gaugeTime: 0
 --- !u!114 &9092280278009485306
 MonoBehaviour:
@@ -15737,8 +15742,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 0
+  SkillButton: {fileID: 0}
+  ButtonSprite: {fileID: 0}
   isSkillUse: 0
+  isSkillPassive: 0
   gaugeTime: 0
 --- !u!4 &9096826808610202265
 Transform:
