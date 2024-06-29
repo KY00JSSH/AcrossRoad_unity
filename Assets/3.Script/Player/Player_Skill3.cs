@@ -8,9 +8,6 @@ public class Player_Skill3 : MonoBehaviour
      * player 반경 30f의 물체 activeFalse
      */
 
-    [SerializeField]
-    public bool isSkillUse = false;    //스킬 사용여부
-
     private List<GameObject> activeObss;    //현재 active중인 obss
 
     private RocksSpawner rocksSpawner;
@@ -23,7 +20,6 @@ public class Player_Skill3 : MonoBehaviour
                 
         playerControll = GetComponent<PlayerControll>();
         activeObss = new List<GameObject>();
-        Init();
     }
 
 
@@ -40,11 +36,6 @@ public class Player_Skill3 : MonoBehaviour
         }
          */
 
-    }
-
-    private void Init() //기본 세팅 초기화
-    {
-        isSkillUse = false;
     }
 
     private void RemoveObss()
@@ -72,8 +63,7 @@ public class Player_Skill3 : MonoBehaviour
         }
 
         //TODO: DROP 딜레이 주기
-
-        //rocksSpawner.DropRocksAroundPlayer(playerPos);                                                                    
-        isSkillUse = false;
+        //TODO: SKILL Effect
+        //rocksSpawner.DropRocksAroundPlayer(playerPos);           
     }
 }
