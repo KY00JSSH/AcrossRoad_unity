@@ -880,7 +880,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401630715}
-  m_LocalRotation: {x: 0.2833686, y: -0.21979891, z: 0.06689424, w: 0.9310832}
+  m_LocalRotation: {x: 0.2833686, y: -0.2197989, z: 0.06689424, w: 0.9310832}
   m_LocalPosition: {x: 12, y: 18, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2710,7 +2710,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 408, y: -319}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220332318
 MonoBehaviour:
@@ -2781,7 +2781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3433,16 +3433,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a71bb4866794ba459b7733eb48bca2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocks:
+  obsPrefabs:
   - {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
   - {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
   - {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
   - {fileID: 2684695994064820914, guid: 86509780b07285a44a69b1eb089a3ed1, type: 3}
   - {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
-  rocksList: []
+  obsList: []
   range: 5
-  isDrop: 0
-  dropDistanceThreshold: 10
 --- !u!4 &1751726047
 Transform:
   m_ObjectHideFlags: 0
@@ -4225,7 +4223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControll: {fileID: 0}
-  skillAvailable: {fileID: 1220332318}
+  skillEffect: {fileID: 7748321551036746699}
 --- !u!114 &3611842278491285847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4384,7 +4382,7 @@ Transform:
   - {fileID: 3866806537712854829}
   - {fileID: 3866781495529690561}
   m_Father: {fileID: 3871155772939893792}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3870410397411153381
 Transform:
@@ -4406,7 +4404,7 @@ Transform:
   - {fileID: 8396488879764059062}
   - {fileID: 8401700780782521912}
   m_Father: {fileID: 3871155772939893792}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3870420445788455492
 Transform:
@@ -4426,7 +4424,7 @@ Transform:
   - {fileID: 4544428003236704814}
   - {fileID: 3870726216888930208}
   m_Father: {fileID: 3871155772939893792}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3870726216888930208
 Transform:
@@ -4454,10 +4452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 1
+  SkillButton: {fileID: 1220332318}
+  ButtonSprite: {fileID: 21300000, guid: 8292974a8766aaf4aa12492c62d097cf, type: 3}
   isSkillUse: 0
+  isSkillPassive: 1
   gaugeTime: 0
-  Field: {fileID: 7748321551036746699}
 --- !u!114 &3871155772458260066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4470,10 +4469,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 0
+  SkillButton: {fileID: 1220332318}
+  ButtonSprite: {fileID: 21300000, guid: 583fb27b4656b854da270015aab6d4a2, type: 3}
   isSkillUse: 0
+  isSkillPassive: 0
   gaugeTime: 0
-  Field: {fileID: 7748321551036746699}
 --- !u!4 &3871155772939893792
 Transform:
   m_ObjectHideFlags: 0
@@ -4486,9 +4486,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5831419615505062937}
-  - {fileID: 3870381874630230727}
   - {fileID: 3870420445788455492}
   - {fileID: 3870410397411153381}
+  - {fileID: 3870381874630230727}
   - {fileID: 7748321551036746700}
   - {fileID: 7748321549698974443}
   m_Father: {fileID: 0}
@@ -4523,10 +4523,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 0
+  SkillButton: {fileID: 1220332318}
+  ButtonSprite: {fileID: 21300000, guid: 8292974a8766aaf4aa12492c62d097cf, type: 3}
   isSkillUse: 0
+  isSkillPassive: 0
   gaugeTime: 0
-  Field: {fileID: 7748321551036746699}
 --- !u!1 &3871645543975946213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,7 +4567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3872020173602074419
 GameObject:
   m_ObjectHideFlags: 0
@@ -4597,8 +4598,9 @@ GameObject:
   - component: {fileID: 3853080450065420916}
   - component: {fileID: 3845562032810745066}
   - component: {fileID: 8603586263728305193}
-  - component: {fileID: 3871155772133639386}
   - component: {fileID: 9099492986827692765}
+  - component: {fileID: 3871155772133639386}
+  - component: {fileID: 3872174787586082861}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -4606,6 +4608,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &3872174787586082861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872174787586082860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196864bbb90a0e443bcd8f1b3d748b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControll: {fileID: 0}
+  skillEffect: {fileID: 7748321551036746699}
 --- !u!1 &3872189003517513245
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,9 +4669,9 @@ GameObject:
   - component: {fileID: 3870381874630230727}
   - component: {fileID: 3821014892323111485}
   - component: {fileID: 3841688871983735021}
-  - component: {fileID: 3871155772458260066}
   - component: {fileID: 1802859559728083243}
   - component: {fileID: 6811411652407656494}
+  - component: {fileID: 3871155772458260066}
   - component: {fileID: 3611842278491285847}
   m_Layer: 0
   m_Name: Chicken
@@ -4663,7 +4679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &3873387460137235441
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14715,7 +14731,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7748321549698974442}
-  m_LocalRotation: {x: 0.2833686, y: -0.21979891, z: 0.06689424, w: 0.9310832}
+  m_LocalRotation: {x: 0.2833686, y: -0.2197989, z: 0.06689424, w: 0.9310832}
   m_LocalPosition: {x: 8, y: 17, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14788,7 +14804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7748321551036746700
 Transform:
   m_ObjectHideFlags: 0
