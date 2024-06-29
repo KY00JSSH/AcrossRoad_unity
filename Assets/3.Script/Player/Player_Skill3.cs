@@ -29,17 +29,10 @@ public class Player_Skill3 : MonoBehaviour
 
     private void Update()
     {
-
-        playerControll.SkillStart += RemoveObss;
-        playerControll.SkillStart -= RemoveObss;
-
-        /*
-         if (isSkillUse)
+         if (playerControll.isSkillUse)
         {
             RemoveObss();
         }
-         */
-
     }
 
     private void Init() //기본 세팅 초기화
@@ -73,7 +66,8 @@ public class Player_Skill3 : MonoBehaviour
 
         //TODO: DROP 딜레이 주기
 
-        //rocksSpawner.DropRocksAroundPlayer(playerPos);                                                                    
-        isSkillUse = false;
+        //rocksSpawner.DropRocksAroundPlayer(playerPos);
+        // PlayerControll 에서 false로 변경할게요
+        //isSkillUse = false;
     }
 }
