@@ -44,6 +44,6 @@ public class Restart_Button : MonoBehaviour
 
     public void BackTo_MainScene()
     {
-        SceneManager.LoadScene("MainGame"); // 버튼 누르면 메인씬으로 돌아가기
+        SceneManager.LoadScene("AcrossGame"); // 버튼 누르면 메인씬으로 돌아가기
     }
 }
