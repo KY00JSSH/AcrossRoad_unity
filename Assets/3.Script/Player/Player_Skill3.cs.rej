@@ -1,0 +1,9 @@
+diff a/Assets/3.Script/Player/Player_Skill3.cs b/Assets/3.Script/Player/Player_Skill3.cs	(rejected hunks)
+@@ -36,6 +36,7 @@
+     private void Init() //�⺻ ���� �ʱ�ȭ
+     {
+         isSkillUse = false;
++=======
+         playerControll.SkillStart += RemoveObss;
+         playerControll.SkillStart -= RemoveObss;
+     }
