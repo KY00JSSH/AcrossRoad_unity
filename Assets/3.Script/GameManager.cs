@@ -54,5 +54,4 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = isTimePassing ? 1 : 0; //일시정지 버튼 토글 240628 13:16
     }
-
 }

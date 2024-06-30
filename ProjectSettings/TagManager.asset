@@ -8,6 +8,7 @@ TagManager:
   - DieObs
   - Ground
   - Wall
+  - Field
   layers:
   - Default
   - TransparentFX
@@ -34,11 +35,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - tilePark
+  - tileRoad
+  - obsCabin
+  - obsTree
+  - obsTreeChop
   - 
   - 
   m_SortingLayers:

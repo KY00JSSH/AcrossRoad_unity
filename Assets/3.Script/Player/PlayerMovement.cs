@@ -8,15 +8,37 @@ public class PlayerMovement : MonoBehaviour {
     private float moveSpeed = 10f;
     private bool isMove = false;
 
+    private int LeftLimit, RightLimit, BackLimit;
+    public int score;
+
+    private bool canMove = true; // HowToPlay, Ranking 나타났을 때 플레이어가 못움직이게 하기 위함 => 240630 11:14 지훈 수정
+
+    private AudioManager audioManager;
+
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
         player_ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
+        score = 0;
+        audioManager = GetComponent<AudioManager>();
+    }
+
+    private void Start() {
+        LeftLimit = -24;
+        RightLimit = 24;    // tile X scale
+        BackLimit = -4;
     }
 
     private void Update() {
-        MovePlayer();
+        //MovePlayer(); => 240630 11:14 지훈 수정
         //Debug.Log($"Target : {targetPosition}");
+
+        if(canMove) // => 240630 11:14 지훈 수정
+        {
+            MovePlayer();
+        }
+        score = Mathf.Max(Mathf.RoundToInt(transform.position.z) / 2 , score);
+        BackLimit = Mathf.Max(score * 2 - 10, -4);
     }
 
 
@@ -40,8 +62,13 @@ public class PlayerMovement : MonoBehaviour {
                 transform.rotation = Quaternion.Euler(0, direction, 0);
                 player_ani.SetTrigger("IsJump");
                 targetPosition = MapPosition.ForwardPosition(playerRigid.position, transform.forward);
+
+                targetPosition.x = Mathf.Clamp(targetPosition.x, LeftLimit, RightLimit);
+                targetPosition.z = Mathf.Clamp(targetPosition.z, BackLimit, targetPosition.z);
+
                 StopCoroutine(Move());
                 StartCoroutine(Move());
+                audioManager.PlayMoveSound();
             }
         }
     }
@@ -89,4 +116,14 @@ public class PlayerMovement : MonoBehaviour {
      * 
      */
 
+    public void SetMovementEnabled(bool enabled) //=> 240630 11:14 지훈 수정
+    {
+        canMove = enabled;
+        if (!enabled)
+        {
+            isMove = false;
+            playerRigid.velocity = Vector3.zero;
+            StopAllCoroutines();
+        }
+    }
 }

@@ -10,19 +10,23 @@ public class ObsSpawner : MonoBehaviour
 
     protected PlayerControll playerCon;       //playereController
 
-    protected void initObsticle()
+    virtual protected void initObsticle()
     {
         GameObject.FindObjectOfType<PlayerControll>().TryGetComponent(out playerCon);
 
         for (int i = 0; i < obsPrefabs.Length; i++)
         {
-            for (int j = 0; j < 6; j++)
+            for (int j = 0; j < 7; j++)
             {
-                GameObject obst = Instantiate(obsPrefabs[i]);
+                GameObject obst = Instantiate(obsPrefabs[i], transform);
                 obst.SetActive(false);
                 obsList.Add(obst);
             }
         }
+    }
+
+    public void setPlayerControl() {
+        FindObjectOfType<PlayerControll>().TryGetComponent(out playerCon);
     }
 
     protected void deadCheck()

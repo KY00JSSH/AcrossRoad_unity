@@ -3,15 +3,19 @@ using Cinemachine;
 
 public class PlayerCamera : MonoBehaviour {
     private Transform playerTransform;
-    private CinemachineVirtualCamera camera;
+    private CinemachineVirtualCamera virtualCamera;
 
     private void Awake() {
-        TryGetComponent(out camera);
+        TryGetComponent(out virtualCamera);
     }
 
     private void Start() {
+        SetFollow();
+    }
+
+    public void SetFollow() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        camera.Follow = playerTransform;
-        camera.LookAt = playerTransform;
+        virtualCamera.Follow = playerTransform;
+        virtualCamera.LookAt = playerTransform;
     }
 }
