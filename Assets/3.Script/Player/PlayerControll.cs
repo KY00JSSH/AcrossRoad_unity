@@ -38,7 +38,7 @@ public class PlayerControll : MonoBehaviour
 
     public void Awake()
     {
-        gaugeTime = 10f;
+        gaugeTime = 15f;
         if (SkillButton != null)
         {
             SkillButton.gameObject.SetActive(true);
@@ -58,7 +58,7 @@ public class PlayerControll : MonoBehaviour
         {//  패시브가 아닐경우 
             // 스킬 사용 변경 메소드
             Skill_Active_On();
-            if (isSkillUse == false && gaugeTime >=5)
+            if (isSkillUse == false && gaugeTime >=10)
             {
                 //게이지 시간이 찼을 경우 버튼 활성화 선택가능
                 SkillButton.gameObject.SetActive(true);
@@ -78,8 +78,8 @@ public class PlayerControll : MonoBehaviour
 
     private void Time_SkillUse_Clear()
     {
-        //스킬 사용과 게이지 시간이 넘었으면 초기화
-        if (isSkillUse && gaugeTime >= 5f)
+        //스킬 사용과 사용 시간이 넘었으면 초기화
+        if (isSkillUse && gaugeTime >= 2f)
         {
             gaugeTime = 0f;
             isSkillUse = false;
@@ -91,7 +91,7 @@ public class PlayerControll : MonoBehaviour
     private void Skill_Active_On()
     {
         // 스킬 입력 받는 부분
-        if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime >= 5f)
+        if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime >= 10f)
         {
             Debug.Log("스킬 사용");
             isSkillUse = true;
@@ -110,7 +110,7 @@ public class PlayerControll : MonoBehaviour
 
     private void Skill_Passive_On()
     {
-        if (gaugeTime >= 5f)
+        if (gaugeTime >= 10f)
         {
             isSkillUse = true;
             SkillButton.gameObject.SetActive(true);

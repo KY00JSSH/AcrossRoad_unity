@@ -28,7 +28,7 @@ public class Player_Skill2 : MonoBehaviour
         Debug.Log("Player_Skill2 스킬 사용");
         playerControll.isSkillUse = true;
         skillEffect.SetActive(true); // 스킬 이펙트 켜짐
-        yield return new WaitForSeconds(5f); // 여기가 무적스킬 사용시간
+        yield return new WaitForSeconds(2f); // 여기가 무적스킬 사용시간
        // playerControll.isSkillUse = false;
         skillEffect.SetActive(false); // 스킬 이펙트  꺼짐
         Debug.Log("스킬 꺼짐");
