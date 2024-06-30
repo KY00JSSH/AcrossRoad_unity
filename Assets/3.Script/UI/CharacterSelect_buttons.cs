@@ -61,6 +61,8 @@ public class CharacterSelect_buttons : MonoBehaviour
             || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             CharacterSelect_Button_Disappear();
+
+//TODO: 게임 시작 부분 -> 고양이면 스킬 사용해야함
         }
     }
 
@@ -75,9 +77,19 @@ public class CharacterSelect_buttons : MonoBehaviour
         for(int i = 0; i < characters.Length; i++)
         {
             characters[i].SetActive(false);
+            if (i == 1)
+            {
+                //TODO: 캐릭터 선택 시 1. 고양이면 스킬 비활성화
+                characters[i].GetComponent<Player_Skill1>().skillEffect.SetActive(false);
+            }
         }
 
+        // 스킬 버튼 아이콘 수정
+        Button _Skill_Icon = GameObject.Find("Skill_Icon").GetComponent<Button>();
+        _Skill_Icon.GetComponent<Image>().sprite = characters[index].GetComponent<PlayerControll>().ButtonSprite;
+
         characters[index].SetActive(true);
+
     }
 
     //private void SelectChicken()
