@@ -37,6 +37,7 @@ public class PlayerControll : MonoBehaviour
     public float gaugeTime = 0f;
 
     private AudioManager audioManager;
+    GameObject gameStartLogo;
 
     public void Awake()
     {
@@ -47,6 +48,7 @@ public class PlayerControll : MonoBehaviour
             SkillButton.gameObject.GetComponent<Image>().sprite = ButtonSprite;
         }
         audioManager = GetComponent<AudioManager>();
+        gameStartLogo = FindObjectOfType<MainLogo_Appearance>().gameObject;
     }
 
     private void Update()
@@ -96,7 +98,6 @@ public class PlayerControll : MonoBehaviour
         // 스킬 입력 받는 부분
         if (Input.GetKeyDown(KeyCode.R) && isSkillUse == false && gaugeTime >= 10f)
         {
-            GameObject gameStartLogo = FindObjectOfType<MainLogo_Appearance>().gameObject;
             if (gameStartLogo.activeSelf) return;
 
             Debug.Log("스킬 사용");
@@ -110,7 +111,6 @@ public class PlayerControll : MonoBehaviour
 
     private void Skill_Active_Button_Use_On()
     {
-        GameObject gameStartLogo = FindObjectOfType<MainLogo_Appearance>().gameObject;
         if (gameStartLogo.activeSelf) return;
 
         Debug.Log("버튼으로 스킬 사용");
