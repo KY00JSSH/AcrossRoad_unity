@@ -35,8 +35,14 @@ public class RankingSystem : MonoBehaviour {
         }
     }
 
+    public void ClearRanking() {
+        if(File.Exists(path)) {
+            File.Delete(path);
+        }
+    }
+
     public void SaveRanking () {
-        List<Rank> rankData = new List<Rank> ();
+        List<Rank> rankData = LoadRanking();
 
         Rank rank = new Rank();
         rank.name = player.name;
@@ -49,12 +55,13 @@ public class RankingSystem : MonoBehaviour {
         File.WriteAllText(path, jsonString);
     }
 
-    public void LoadRanking() {
+    public List<Rank> LoadRanking() {
         RankData jsonRankData = new RankData();
         if (File.Exists(path)) {
             string jsonString = File.ReadAllText(path);
             jsonRankData = JsonUtility.FromJson<RankData>(jsonString);
-
+            return jsonRankData.rankData;
         }
+        return null;
     }
 }
