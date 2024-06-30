@@ -30,13 +30,17 @@ public class RankingSystem : MonoBehaviour {
     public PlayerMovement playerMovement; // RankingSystem이 나타났을 때 캐릭터가 못움직이게 하기 위함
         
     private void Awake() {
-        player = GameObject.FindGameObjectWithTag("Player");
+        setPlayer();
         path = Path.Combine(Application.persistentDataPath, "ranking.json");
         jsonRankData = new RankData();
 
         bottomMenuButtons = FindObjectOfType<BottomMenu_Buttons>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         Back_Button.onClick.AddListener(Back); //돌아가기 버튼 로직
+    }
+
+    public void setPlayer() {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start() /**/

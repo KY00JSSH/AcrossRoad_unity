@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1222426749246347044}
   - component: {fileID: 2835355936230250625}
   - component: {fileID: 53412601800715339}
+  - component: {fileID: -59374153895987115}
   m_Layer: 0
   m_Name: Cloud_Long
   m_TagString: Untagged
@@ -81,3 +82,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-59374153895987115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998822023407848862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3295fc0bb8308c49b42da1d2ecec39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
