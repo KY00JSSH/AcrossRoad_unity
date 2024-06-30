@@ -11,6 +11,17 @@ public class RocksSpawner : ObsSpawner
     private Vector3 lastPlayerPosition;
     private float dropChangeDistance = 10f;  //player 이동시 새로 갱신할 거리 기준
 
+    [SerializeField]
+    private float fallSpeed = 10f;  // 떨어지는 속도 설정
+
+    [SerializeField]
+    private int maxActiveRocks = 25; // 최대 활성화된 돌의 수
+
+    public Vector3 PlayerPosition
+    {
+        get { return player.transform.position; }
+    }
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -28,7 +39,6 @@ public class RocksSpawner : ObsSpawner
 
     private void Update()
     {
-        //TODO: player 이동하면 DROP 시작 추가하기
         deadCheck();
 
         // Player가 일정 거리 이상 이동했는지 확인
@@ -51,6 +61,7 @@ public class RocksSpawner : ObsSpawner
             Vector3 randomPosition = GetRandomPosition(player.transform.position);
             rock.transform.position = randomPosition;
             rock.SetActive(true);
+            rock.GetComponent<RocksController>().SetFallSpeed(fallSpeed); // 떨어지는 속도 설정
         }
     }
 
@@ -70,12 +81,29 @@ public class RocksSpawner : ObsSpawner
     {
         if (playerCon.isDead) return;  // Player와 충돌했으면 새로운 Rock 생성 방지
 
+        if (CountActiveRocks() >= maxActiveRocks)
+            return;
+
         List<GameObject> inactiveRocks = obsList.FindAll(rock => !rock.activeInHierarchy);
         if (inactiveRocks.Count > 0)
         {
             GameObject randomRock = inactiveRocks[Random.Range(0, inactiveRocks.Count)];
             randomRock.transform.position = GetRandomPosition(player.transform.position);
             randomRock.SetActive(true);
+            randomRock.GetComponent<RocksController>().SetFallSpeed(fallSpeed); // 떨어지는 속도 설정
         }
+    }
+
+    private int CountActiveRocks()
+    {
+        int count = 0;
+        foreach (GameObject rock in obsList)
+        {
+            if (rock.activeInHierarchy)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }

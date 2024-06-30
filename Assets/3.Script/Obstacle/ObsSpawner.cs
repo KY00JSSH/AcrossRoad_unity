@@ -16,9 +16,9 @@ public class ObsSpawner : MonoBehaviour
 
         for (int i = 0; i < obsPrefabs.Length; i++)
         {
-            for (int j = 0; j < 6; j++)
+            for (int j = 0; j < 7; j++)
             {
-                GameObject obst = Instantiate(obsPrefabs[i]);
+                GameObject obst = Instantiate(obsPrefabs[i], transform);
                 obst.SetActive(false);
                 obsList.Add(obst);
             }
