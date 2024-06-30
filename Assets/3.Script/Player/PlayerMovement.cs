@@ -13,11 +13,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool canMove = true; // HowToPlay, Ranking 나타났을 때 플레이어가 못움직이게 하기 위함 => 240630 11:14 지훈 수정
 
+    private AudioSource audioSource;
+
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
         player_ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
         score = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -65,6 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 
                 StopCoroutine(Move());
                 StartCoroutine(Move());
+                PlayMoveSound();
             }
         }
     }
@@ -98,6 +102,14 @@ public class PlayerMovement : MonoBehaviour {
             if(playerRigid.position.Equals(targetPosition))
                 isMove = false;
             // rigid Position 값이 targetPosition에 정확히 equal 되지 않는 이슈. (플레이에 지장없음)
+        }
+    }
+
+    void PlayMoveSound()
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
     }
 

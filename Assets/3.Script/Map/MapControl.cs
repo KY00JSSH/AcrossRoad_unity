@@ -24,7 +24,7 @@ public class MapControl : MonoBehaviour {
         Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         List<GameObject> CreatedTiles = FindObjectOfType<MapControl>().CreatedTiles;
         List<Vector3> positions = new List<Vector3>();
-        int tileDistance = 16;
+        int tileDistance = 36;
 
         foreach (GameObject each in CreatedTiles) {
             if (each.layer.Equals(26) &&        // tileRoad layerIndex = 26

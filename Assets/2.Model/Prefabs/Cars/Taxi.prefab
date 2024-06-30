@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 5412426300615929488}
   m_Layer: 0
   m_Name: Taxi
-  m_TagString: Untagged
+  m_TagString: DieObs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

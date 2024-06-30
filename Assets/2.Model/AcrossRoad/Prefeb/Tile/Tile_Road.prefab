@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8451215637475062412}
   m_Layer: 26
   m_Name: Tile_Road
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

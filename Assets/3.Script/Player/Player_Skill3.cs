@@ -14,6 +14,7 @@ public class Player_Skill3 : MonoBehaviour
     private HorizObsSpawner horizObsSpawner;
 
     private PlayerControll playerControll;
+    public ExplosionEffect explosionEffect;
 
     private void Awake()
     {
@@ -26,10 +27,23 @@ public class Player_Skill3 : MonoBehaviour
 
     private void Update()
     {
-        //playerControll.SkillStart += RemoveObss;
-        //playerControll.SkillStart -= RemoveObss;
+        if (playerControll.isSkillUse)
+        {
+            if (explosionEffect != null)
+            {
+                explosionEffect.SetPositionOfEffect();
+            }
+            RemoveObss();
+        }
+        
     }
 
+    /*
+    private void Init() //기본 세팅 초기화
+    {
+        isSkillUse = false;
+    }
+    */
     private void RemoveObss()
     {
         Vector3 playerPos = gameObject.transform.position;
@@ -39,6 +53,8 @@ public class Player_Skill3 : MonoBehaviour
             if (rock.activeInHierarchy)
             {
                 activeObss.Add(rock);
+                //TODO: 여기 돌 생성이 많음!!
+                Debug.Log("Player_Skill3 내부 돌이 생성되어있을 경우 리스트확인 " + rock.name); 
             }
         }
 
