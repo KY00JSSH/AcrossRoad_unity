@@ -16,7 +16,7 @@ public class Player_Skill2 : MonoBehaviour
     private void Update()
     {
         skillEffect.transform.position = transform.position;
-        if (playerControll.isSkillUse)
+        if (playerControll.isSkillUse) //update에서 값 계속 확인해서 스킬 사용
         {
             StopCoroutine(DefenceTimeCheck());
             StartCoroutine(DefenceTimeCheck());

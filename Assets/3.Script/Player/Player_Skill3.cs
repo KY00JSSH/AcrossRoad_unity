@@ -26,10 +26,19 @@ public class Player_Skill3 : MonoBehaviour
 
     private void Update()
     {
-        //playerControll.SkillStart += RemoveObss;
-        //playerControll.SkillStart -= RemoveObss;
+        if (playerControll.isSkillUse)
+        {
+            RemoveObss();
+        }
+        
     }
 
+    /*
+    private void Init() //기본 세팅 초기화
+    {
+        isSkillUse = false;
+    }
+    */
     private void RemoveObss()
     {
         Vector3 playerPos = gameObject.transform.position;
