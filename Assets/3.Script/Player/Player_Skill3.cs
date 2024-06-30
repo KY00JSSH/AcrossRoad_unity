@@ -26,13 +26,8 @@ public class Player_Skill3 : MonoBehaviour
 
     private void Update()
     {
-        playerControll.SkillStart += RemoveObss;
-        playerControll.SkillStart -= RemoveObss;
-    }
-
-    private void Init() //기본 세팅 초기화
-    {
-        isSkillUse = false;
+        //playerControll.SkillStart += RemoveObss;
+        //playerControll.SkillStart -= RemoveObss;
     }
 
     private void RemoveObss()
@@ -68,14 +63,14 @@ public class Player_Skill3 : MonoBehaviour
         foreach (GameObject car in activeObss)
         {
             if (Vector3.Distance(car.transform.position, playerPos) <= 50f)  // player 현재 position range 범위 안에
-        List<Vector3> carPositions = MapControl.GetAllCarSpawnPosition();
-        horizObsSpawner.SpawnCars(carPositions);
+            {
+                car.SetActive(false);
             }
         }
 
         rocksSpawner.DropRocksAroundPlayer();
 
-        //rocksSpawner.DropRocksAroundPlayer(playerPos);                                                                    
-        isSkillUse = false;
+        List<Vector3> carPositions = MapControl.GetAllCarSpawnPosition();
+        horizObsSpawner.SpawnCars(carPositions);
     }
 }
