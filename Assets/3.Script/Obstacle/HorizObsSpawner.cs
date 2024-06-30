@@ -11,7 +11,7 @@ public class HorizObsSpawner : ObsSpawner
     private float movementSpeed = 10f; // 장애물 이동 속도
     private int maxCarNum = 3; // 각 z 위치에 최대 차 수
     private float backDistance = 4f; // 플레이어 위치에서 z축 뒤로 비활성화할 거리
-    private float minSpacing = 8f; // 최소 간격
+    private float minSpacing = 4f; // 최소 간격
 
     private Vector3 prevPlayerPos;
     private float spawnThreshold = 1f; // 플레이어가 이동해야 하는 최소 거리
@@ -86,13 +86,14 @@ public class HorizObsSpawner : ObsSpawner
                             obst.SetActive(true);
 
                             HorizObsController obsController = obst.GetComponent<HorizObsController>();
+                            float delay = Random.Range(0.1f, 1f); // 장애물마다 다른 딜레이 설정
                             if (pos.x < player.transform.position.x)
                             {
-                                obsController.SetDirection(Vector3.right);
+                                obsController.SetDirection(Vector3.right, delay);
                             }
                             else
                             {
-                                obsController.SetDirection(Vector3.left);
+                                obsController.SetDirection(Vector3.left, delay);
                             }
 
                             if (!zPositionCarCount.ContainsKey(zPos))
