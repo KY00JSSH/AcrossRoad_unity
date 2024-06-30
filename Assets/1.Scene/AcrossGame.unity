@@ -13818,10 +13818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a716349c4390f408a70f38ed9a4bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement:
-  - {fileID: 99111633}
-  - {fileID: 1479614343}
-  - {fileID: 326054044}
+  player: {fileID: 0}
   textScore: {fileID: 982464778}
 --- !u!114 &982464777
 MonoBehaviour:
@@ -13871,7 +13868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score 000
+  m_Text: Score 0
 --- !u!222 &982464779
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14163,8 +14160,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540465410}
   m_HandleRect: {fileID: 1540465409}
   m_Direction: 2
-  m_Value: 0.9999964
-  m_Size: 0.97874993
+  m_Value: 1.0000036
+  m_Size: 0.97875005
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15699,7 +15696,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1408041089}
   m_HandleRect: {fileID: 1408041088}
   m_Direction: 0
-  m_Value: 0.0000017951517
+  m_Value: 0
   m_Size: 0.9716667
   m_NumberOfSteps: 0
   m_OnValueChanged:
