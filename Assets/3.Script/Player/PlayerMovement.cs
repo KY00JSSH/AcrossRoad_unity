@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour {
         //Debug.Log($"Target : {targetPosition}");
         score = Mathf.Max(Mathf.RoundToInt(transform.position.z) / 2 , score);
         BackLimit = Mathf.Max(score * 2 - 10, -4);
-        Debug.Log(BackLimit);
     }
 
 
