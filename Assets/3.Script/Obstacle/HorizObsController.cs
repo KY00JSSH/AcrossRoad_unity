@@ -10,12 +10,14 @@ public class HorizObsController : MonoBehaviour
     private float xLimit = 24f; //x 최대 좌표
     private bool isDelayed = false;
 
+    private float delayTime; // 새로운 딜레이 시간을 위한 변수
+
     private void Start()
     {
         StartCoroutine(InitialDelay());
     }
 
-    public void SetDirection(Vector3 dir)
+    public void SetDirection(Vector3 dir, float delay)
     {
         direction = dir;
         transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
@@ -30,6 +32,8 @@ public class HorizObsController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, -90f, 0f);
         }
+
+        delayTime = delay; // 설정된 딜레이 시간 저장
     }
 
     public void Move(float distance)
@@ -51,8 +55,7 @@ public class HorizObsController : MonoBehaviour
 
     private IEnumerator InitialDelay()
     {
-        float delay = Random.Range(0.1f, 2f); // Random delay between 0.1 and 1 second
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(delayTime);
         isDelayed = true;
     }
 }
