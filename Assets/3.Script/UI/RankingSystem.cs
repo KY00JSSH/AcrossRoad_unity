@@ -19,19 +19,16 @@ public class RankData {
 public class RankingSystem : MonoBehaviour {
     string path;
     public RankData jsonRankData;
-    private GameObject player;
+    private GameObject player;   
 
-    public GameObject rankingItemPrefab; /**/
-    public Transform rankingsContainer; /**/
+    public GameObject rankingItemPrefab;
+    public Transform rankingsContainer; 
 
     public RectTransform rankingsystemRectTransform;
     private BottomMenu_Buttons bottomMenuButtons;
     public Button Back_Button;
     public PlayerMovement playerMovement; // RankingSystem이 나타났을 때 캐릭터가 못움직이게 하기 위함
-
-    public PlayerControll playerControll;
-
-
+        
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
         path = Path.Combine(Application.persistentDataPath, "ranking.json");
@@ -40,16 +37,13 @@ public class RankingSystem : MonoBehaviour {
         bottomMenuButtons = FindObjectOfType<BottomMenu_Buttons>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         Back_Button.onClick.AddListener(Back); //돌아가기 버튼 로직
-
-        playerControll = FindObjectOfType<PlayerControll>();
     }
 
     private void Start() /**/
     {
         LoadRanking();
         DisplayRanking();
-
-        
+                
         RankingSystem_Disappear();
     }
 
@@ -95,7 +89,7 @@ public class RankingSystem : MonoBehaviour {
         //return jsonRankData.rankData; 
     }
 
-    private void DisplayRanking() /**/
+    private void DisplayRanking() 
     {
         foreach(Transform child in rankingsContainer)
         {
@@ -128,5 +122,5 @@ public class RankingSystem : MonoBehaviour {
     {
         RankingSystem_Disappear();
         bottomMenuButtons.Button_Appear();
-    }
+    }    
 }

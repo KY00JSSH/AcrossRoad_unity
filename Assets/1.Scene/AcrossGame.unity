@@ -600,7 +600,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6570,7 +6570,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -12381,6 +12381,7 @@ MonoBehaviour:
   rankingsystemRectTransform: {fileID: 625891956}
   Back_Button: {fileID: 985974588}
   playerMovement: {fileID: 0}
+  playerControll: {fileID: 0}
 --- !u!114 &625891958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14160,8 +14161,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540465410}
   m_HandleRect: {fileID: 1540465409}
   m_Direction: 2
-  m_Value: 1.0000036
-  m_Size: 0.97875005
+  m_Value: 0.9999964
+  m_Size: 0.97874993
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15518,7 +15519,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -15696,7 +15697,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1408041089}
   m_HandleRect: {fileID: 1408041088}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 0.0000017951517
   m_Size: 0.9716667
   m_NumberOfSteps: 0
   m_OnValueChanged:
