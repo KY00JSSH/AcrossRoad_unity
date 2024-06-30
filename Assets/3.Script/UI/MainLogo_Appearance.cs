@@ -48,8 +48,24 @@ public class MainLogo_Appearance : MonoBehaviour
          {
             gameObject.SetActive(false);
 
+            // 플레이어 재할당
             Score score = FindObjectOfType<Score>();
             score.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+
+            PlayerCamera playerCamera = FindObjectOfType<PlayerCamera>();
+            playerCamera.SetFollow();
+
+            RocksSpawner rockSpawner = FindObjectOfType<RocksSpawner>();
+            rockSpawner.setPlayerControl();
+            rockSpawner.setPlayerObject();
+
+            HorizObsSpawner horizSpawner = FindObjectOfType<HorizObsSpawner>();
+            horizSpawner.setPlayerControl();
+            horizSpawner.setPlayerObject();
+
+            MapControl mapControl = FindObjectOfType<MapControl>();
+            mapControl.setPlayerTransform();
+
             //rect.localScale = Vector3.zero;     
          }
     }

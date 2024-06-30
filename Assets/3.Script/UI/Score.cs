@@ -11,7 +11,8 @@ public class Score : MonoBehaviour {
     private Text textScore;
 
     private void Update() {
-        textScore.text = $"Score {player.score}";
+        if (player != null)
+            textScore.text = $"Score {player.score}";
     }
 
 }
