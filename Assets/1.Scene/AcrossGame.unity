@@ -6716,7 +6716,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 2
   m_SoftZoneHeight: 0.61
   m_BiasX: 0
-  m_BiasY: -0.45000002
+  m_BiasY: -0.35000002
   m_CenterOnActivate: 1
 --- !u!114 &326627887
 MonoBehaviour:

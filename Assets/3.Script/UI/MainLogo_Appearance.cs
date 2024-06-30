@@ -48,6 +48,8 @@ public class MainLogo_Appearance : MonoBehaviour
          {
             gameObject.SetActive(false);
 
+            Score score = FindObjectOfType<Score>();
+            score.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
             //rect.localScale = Vector3.zero;     
          }
     }
