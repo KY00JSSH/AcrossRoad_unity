@@ -66,6 +66,18 @@ public class RankingSystem : MonoBehaviour {
         }
     }
 
+    public void SortRanking(List<Rank> rankData) {
+        for(int i = 0; i < rankData.Count; i++) {
+            for(int j = i; j < rankData.Count; j++) {
+                if (rankData[i].score < rankData[j].score) {
+                    Rank temp = rankData[i];
+                    rankData[i] = rankData[j];
+                    rankData[j] = temp;
+                }
+            }
+        }
+    }
+
     public void SaveRanking () {
         //List<Rank> rankData = LoadRanking();
         List<Rank> rankData = LoadRanking() ?? new List<Rank>(); /**/
@@ -75,6 +87,7 @@ public class RankingSystem : MonoBehaviour {
         rank.time = DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"));
         rank.score = player.GetComponent<PlayerMovement>().score;       
         rankData.Add(rank);
+        SortRanking(rankData);
 
         jsonRankData.rankData = rankData;
         string jsonString = JsonUtility.ToJson(jsonRankData);
