@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 targetPosition;
     private float moveSpeed = 10f;
     private bool isMove = false;
+
+    private int LeftLimit, RightLimit, BackLimit;
     public int score;
 
     private void Awake() {
@@ -16,10 +18,17 @@ public class PlayerMovement : MonoBehaviour {
         score = 0;
     }
 
+    private void Start() {
+        LeftLimit = -24;
+        RightLimit = 24;    // tile X scale
+        BackLimit = -4;
+    }
+
     private void Update() {
         MovePlayer();
         //Debug.Log($"Target : {targetPosition}");
         score = Mathf.Max(Mathf.RoundToInt(transform.position.z) / 2 , score);
+        BackLimit = Mathf.Max(score * 2 - 10, -4);
     }
 
 
@@ -43,6 +52,10 @@ public class PlayerMovement : MonoBehaviour {
                 transform.rotation = Quaternion.Euler(0, direction, 0);
                 player_ani.SetTrigger("IsJump");
                 targetPosition = MapPosition.ForwardPosition(playerRigid.position, transform.forward);
+
+                targetPosition.x = Mathf.Clamp(targetPosition.x, LeftLimit, RightLimit);
+                targetPosition.z = Mathf.Clamp(targetPosition.z, BackLimit, targetPosition.z);
+
                 StopCoroutine(Move());
                 StartCoroutine(Move());
             }
