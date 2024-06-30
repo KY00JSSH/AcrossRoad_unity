@@ -21,22 +21,20 @@ public class StopButton : MonoBehaviour
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
-        button = GetComponent<Button>();
-        //isGameOver = GetComponent<GameManager>();
+        button = GetComponent<Button>();             
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         rect.localScale = Vector3.zero;
-        button.onClick.AddListener(ToggleTime);
+        button.onClick.AddListener(ToggleTime);        
     }
 
     // Update is called once per frame
     private void Update()
     {
-        GameStart_Button_appear();
-        //ToggleTime();
+        GameStart_Button_appear();        
     }
 
     private void ToggleTime()
@@ -56,31 +54,17 @@ public class StopButton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
             || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
             || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
-            || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-         //Input.GetKeyDown(KeyCode.Space))
+            || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))        
         {
-            rect.localScale = Vector3.one;
-            /*
-            if (elapsedTime < fadeDuration)
-            {
-                elapsedTime += Time.deltaTime;
-
-                float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-                // Clamp01 -> 알파값(투명도)을 0와 1 사이의 범위로 제한하는 것, 의도치 않게 0과 1 사이를 벗어나지 못하도록.
-
-                Color logoColor = logoimage.color;
-                logoColor.a = alpha;
-                logoimage.color = logoColor;
-            }
-            */
+            isGameOver = false;
+            rect.localScale = Vector3.one;           
         }
     }
 
-    public void Character_Die_Logo_Disappear() //게임오버되면 버튼 사라지게
+    public void Character_Die_Button_Disappear() //게임오버되면 버튼 사라지게
     {
-        if(isGameOver)
-        {
-            gameObject.SetActive(false);
-        }
+        isGameOver = true;
+        Time.timeScale = 0;
+        rect.localScale = Vector3.zero;        
     }
 }

@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     private int LeftLimit, RightLimit, BackLimit;
     public int score;
 
+    private bool canMove = true; // HowToPlay, Ranking 나타났을 때 플레이어가 못움직이게 하기 위함 => 240630 11:14 지훈 수정
+
     private AudioSource audioSource;
 
     private void Awake() {
@@ -28,8 +30,13 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        MovePlayer();
+        //MovePlayer(); => 240630 11:14 지훈 수정
         //Debug.Log($"Target : {targetPosition}");
+
+        if(canMove) // => 240630 11:14 지훈 수정
+        {
+            MovePlayer();
+        }
         score = Mathf.Max(Mathf.RoundToInt(transform.position.z) / 2 , score);
         BackLimit = Mathf.Max(score * 2 - 10, -4);
     }
@@ -117,4 +124,15 @@ public class PlayerMovement : MonoBehaviour {
      * 
      */
 
+    public void SetMovementEnabled(bool enabled) //=> 240630 11:14 지훈 수정
+    {
+        canMove = enabled;
+        if (!enabled)
+        {
+            isMove = false;
+            playerRigid.velocity = Vector3.zero;
+            StopAllCoroutines();
+        }
+
+    }
 }

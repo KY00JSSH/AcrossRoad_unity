@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 // 프로그램 시작과 동시에 로고가 나타나고
 // 게임이 시작되면 로고가 옆으로 '슈웅~' 날아가면서 사라지게
 
@@ -45,16 +44,11 @@ public class MainLogo_Appearance : MonoBehaviour
          if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
          || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
          || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
-         || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-         //Input.GetKeyDown(KeyCode.Space))
+         || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))       
          {
             gameObject.SetActive(false);
 
-            //rect.localScale = Vector3.zero;
-
-            //Color logoColor = logoimage.color;
-            //logoColor.a = 0;
-            //logoimage.color = logoColor;             
+            //rect.localScale = Vector3.zero;     
          }
     }
 }
