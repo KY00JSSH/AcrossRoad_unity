@@ -40,8 +40,12 @@ public class MapControl : MonoBehaviour {
     }
 
     private void Awake() {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        setPlayerTransform();
         TryGetComponent(out obstacleSpawn);
+    }
+
+    public void setPlayerTransform() {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Start() {

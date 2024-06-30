@@ -26,9 +26,14 @@ public class RocksSpawner : ObsSpawner
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        setPlayerObject();
         initObsticle();
     }
+
+    public void setPlayerObject() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
 
     private void Start()
     {

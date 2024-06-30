@@ -36,6 +36,8 @@ public class PlayerControll : MonoBehaviour
     // 업데이트에서 게이지는 시간 추가 -> 스킬 사용 후 게이지값 초기화
     public float gaugeTime = 0f;
 
+    private AudioManager audioManager;
+
     public void Awake()
     {
         gaugeTime = 15f;
@@ -44,6 +46,7 @@ public class PlayerControll : MonoBehaviour
             SkillButton.gameObject.SetActive(true);
             SkillButton.gameObject.GetComponent<Image>().sprite = ButtonSprite;
         }
+        audioManager = GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -97,6 +100,8 @@ public class PlayerControll : MonoBehaviour
             isSkillUse = true;
             gaugeTime = 0f;
             SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
+            // SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
+            audioManager.PlaySkillSound();
         }
     }
 
@@ -106,6 +111,8 @@ public class PlayerControll : MonoBehaviour
         isSkillUse = true;
         gaugeTime = 0f;
         SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
+        //SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
+        audioManager.PlaySkillSound();
     }
 
     private void Skill_Passive_On()

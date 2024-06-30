@@ -25,6 +25,10 @@ public class ObsSpawner : MonoBehaviour
         }
     }
 
+    public void setPlayerControl() {
+        FindObjectOfType<PlayerControll>().TryGetComponent(out playerCon);
+    }
+
     protected void deadCheck()
     {
         if (playerCon.isDead)
