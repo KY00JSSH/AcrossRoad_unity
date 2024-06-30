@@ -33,7 +33,7 @@ public class RankingSystem : MonoBehaviour {
 
 
     private void Awake() {
-        player = GameObject.FindGameObjectWithTag("Player");
+        setPlayer();
         path = Path.Combine(Application.persistentDataPath, "ranking.json");
         jsonRankData = new RankData();
 
@@ -42,6 +42,10 @@ public class RankingSystem : MonoBehaviour {
         Back_Button.onClick.AddListener(Back); //돌아가기 버튼 로직
 
         playerControll = FindObjectOfType<PlayerControll>();
+    }
+
+    public void setPlayer() {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start() /**/

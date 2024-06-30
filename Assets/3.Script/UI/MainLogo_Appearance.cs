@@ -73,6 +73,9 @@ public class MainLogo_Appearance : MonoBehaviour
 
             Restart_Button restartButton = FindObjectOfType<Restart_Button>();
             restartButton.setPlayerControl();
+
+            RankingSystem rankingSystem = FindObjectOfType<RankingSystem>();
+            rankingSystem.setPlayer();
             //rect.localScale = Vector3.zero;     
          }
     }
