@@ -11,11 +11,14 @@ public class PlayerMovement : MonoBehaviour {
     private int LeftLimit, RightLimit, BackLimit;
     public int score;
 
+    private AudioSource audioSource;
+
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
         player_ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
         score = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -58,6 +61,7 @@ public class PlayerMovement : MonoBehaviour {
 
                 StopCoroutine(Move());
                 StartCoroutine(Move());
+                PlayMoveSound();
             }
         }
     }
@@ -91,6 +95,14 @@ public class PlayerMovement : MonoBehaviour {
             if(playerRigid.position.Equals(targetPosition))
                 isMove = false;
             // rigid Position 값이 targetPosition에 정확히 equal 되지 않는 이슈. (플레이에 지장없음)
+        }
+    }
+
+    void PlayMoveSound()
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
     }
 
