@@ -13,14 +13,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool canMove = true; // HowToPlay, Ranking 나타났을 때 플레이어가 못움직이게 하기 위함 => 240630 11:14 지훈 수정
 
-    private AudioSource audioSource;
+    private AudioManager audioManager;
 
     private void Awake() {
         Debug.Log($"Rigid Component : {TryGetComponent(out playerRigid)}");
         player_ani = GetComponent<Animator>();
         targetPosition = playerRigid.position;
         score = 0;
-        audioSource = GetComponent<AudioSource>();
+        audioManager = GetComponent<AudioManager>();
     }
 
     private void Start() {
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 
                 StopCoroutine(Move());
                 StartCoroutine(Move());
-                PlayMoveSound();
+                audioManager.PlayMoveSound();
             }
         }
     }
@@ -105,14 +105,6 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void PlayMoveSound()
-    {
-        if (audioSource != null && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
-    }
-
     /*
      * 1. 방향키를 누르면
      * 2. 해당 방향을 보고
@@ -133,6 +125,5 @@ public class PlayerMovement : MonoBehaviour {
             playerRigid.velocity = Vector3.zero;
             StopAllCoroutines();
         }
-
     }
 }
