@@ -10,25 +10,6 @@ public class ExplosionEffect : MonoBehaviour
     [SerializeField] private float effectLifetime = 0.5f;
 
 
-    public void SkillEffectStart()
-    {
-        Debug.Log("SkillEffectStart 호출 횟수 확인");
-        StopCoroutine(OnExplsion());
-        StartCoroutine(OnExplsion());
-    }
-
-    private IEnumerator OnExplsion()
-    {
-        yield return new WaitForSeconds(explosionDelayTime);
-
-        //폭발이펙트 생성
-        if (explosionPrefabs != null)
-        {
-            SetPositionOfEffect();
-        }
-    }
-
-
     // Hierarchy 에 있는 활성화 되어있는 dieobs를 찾아와서 해당 위치 찾아옴
     private Vector3[] FindActiveDieObs()
     {

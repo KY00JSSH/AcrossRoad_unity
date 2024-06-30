@@ -53,6 +53,8 @@ public class Player_Skill3 : MonoBehaviour
             if (rock.activeInHierarchy)
             {
                 activeObss.Add(rock);
+                //TODO: 여기 돌 생성이 많음!!
+                Debug.Log("Player_Skill3 내부 돌이 생성되어있을 경우 리스트확인 " + rock.name); 
             }
         }
 
