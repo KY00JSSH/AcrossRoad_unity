@@ -10473,7 +10473,7 @@ GameObject:
   - component: {fileID: 1007457743}
   - component: {fileID: 1007457742}
   m_Layer: 0
-  m_Name: sp
+  m_Name: RockSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10488,19 +10488,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1007457741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac79c614b2f7b5943b60dbd19fd5b1c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a71bb4866794ba459b7733eb48bca2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obsPrefabs:
-  - {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
-  - {fileID: 8663673574762740106, guid: 3f83a5a9639ce0249ac0d7df9b8c40b9, type: 3}
-  - {fileID: 6452039197999972492, guid: 813df9801c30e63479934f054db68d12, type: 3}
-  - {fileID: 8160049463398649625, guid: 66f97e68ed002b74f8e181d1c3108e14, type: 3}
-  - {fileID: 9189002782948893723, guid: bf49b486ffae2c2429b4fd41e96023c3, type: 3}
-  - {fileID: 9181701585240893179, guid: 350735ef3b951a54ba6ec49c663c667e, type: 3}
+  - {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
+  - {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+  - {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
+  - {fileID: 2684695994064820914, guid: 86509780b07285a44a69b1eb089a3ed1, type: 3}
+  - {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
   obsList: []
-  numberOfObstacles: 20
-  movementSpeed: 10
+  range: 20
+  fallSpeed: 8
+  maxActiveRocks: 20
 --- !u!4 &1007457743
 Transform:
   m_ObjectHideFlags: 0
@@ -10836,8 +10836,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 1
+  SkillButton: {fileID: 0}
+  ButtonSprite: {fileID: 0}
   isSkillUse: 0
+  isSkillPassive: 1
   gaugeTime: 0
 --- !u!95 &1335480971
 Animator:
@@ -11102,6 +11104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControll: {fileID: 0}
+  skillEffect: {fileID: 0}
 --- !u!114 &1584303954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11114,8 +11117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 0
+  SkillButton: {fileID: 0}
+  ButtonSprite: {fileID: 0}
   isSkillUse: 0
+  isSkillPassive: 0
   gaugeTime: 0
 --- !u!114 &1584303955
 MonoBehaviour:
@@ -11911,8 +11916,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1eeab0d5964e4486b72b406c680af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkillPassive: 0
+  SkillButton: {fileID: 0}
+  ButtonSprite: {fileID: 0}
   isSkillUse: 0
+  isSkillPassive: 0
   gaugeTime: 0
 --- !u!65 &1998105861
 BoxCollider:
@@ -11943,3 +11950,56 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!1 &2129461409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129461411}
+  - component: {fileID: 2129461410}
+  m_Layer: 0
+  m_Name: CarSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2129461410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129461409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac79c614b2f7b5943b60dbd19fd5b1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obsPrefabs:
+  - {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
+  - {fileID: 8663673574762740106, guid: 3f83a5a9639ce0249ac0d7df9b8c40b9, type: 3}
+  - {fileID: 6452039197999972492, guid: 813df9801c30e63479934f054db68d12, type: 3}
+  - {fileID: 8160049463398649625, guid: 66f97e68ed002b74f8e181d1c3108e14, type: 3}
+  - {fileID: 9189002782948893723, guid: bf49b486ffae2c2429b4fd41e96023c3, type: 3}
+  - {fileID: 9181701585240893179, guid: 350735ef3b951a54ba6ec49c663c667e, type: 3}
+  obsList: []
+  numberOfObstacles: 30
+  movementSpeed: 10
+--- !u!4 &2129461411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129461409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1503522, y: -15.05476, z: 12.778866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
