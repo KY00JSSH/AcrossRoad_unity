@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5731077476133941631}
   - component: {fileID: 4187502766891753307}
   - component: {fileID: 867201844744228044}
-  - component: {fileID: 7905687712137894268}
   - component: {fileID: -5148711559512326229}
   - component: {fileID: 8203278308707223175}
+  - component: {fileID: 3774325879902349119}
   m_Layer: 0
   m_Name: SM_Rocks_01
   m_TagString: DieObs
@@ -84,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7905687712137894268
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8933749797280981253}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0.023026943, y: 0.16347389, z: 0.021668836}
 --- !u!54 &-5148711559512326229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,3 +112,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249c1833dc361804e849ee50b1b3bbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3774325879902349119
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8933749797280981253}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5537529, y: 0.38896433, z: 0.4888753}
+  m_Center: {x: 0.023026943, y: 0.16347389, z: 0.021668836}
