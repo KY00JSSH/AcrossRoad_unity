@@ -12785,16 +12785,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD558\uB298\uC5D0\uC11C \uB3CC\uC774 \uB5A8\uC5B4\uC9D1\uB2C8\uB2E4\n\n\uB9DE\uC73C\uBA74
-    \uB3D9\uBB3C \uCE5C\uAD6C\uB4E4\uC774 \uC544\uD30C\uD574\uC694\n\n\uB3CC\uC744
-    \uD53C\uD574\uC8FC\uC138\uC694\n\n\uADF8\uB9AC\uACE0 \uB3D9\uC2DC\uC5D0 \uAE38\uB3C4
-    \uAC74\uB108\uC8FC\uC138\uC694\n\n\uBB34\uB2E8\uD6A1\uB2E8\uC774\uC9C0\uB9CC...\uBB50
-    \uBCC4 \uC218 \uC788\uB098\uC694?\n\n\uB3D9\uBB3C \uCE5C\uAD6C\uB4E4\uC774 \uAC74\uB108\uACE0
-    \uC2F6\uB2E4\uB294\uB370...\n\n'\uB3CC\uC544\uAC00\uAE30'\uB97C \uB20C\uB7EC
-    \uBA54\uC778\uD654\uBA74\uC73C\uB85C\n\uB3CC\uC544\uAC00\uACE0\n\n\uBC29\uD5A5\uD0A4
+  m_Text: "'\uB3CC\uC544\uAC00\uAE30'\uB97C \uB20C\uB7EC \uBA54\uC778\uD654\uBA74\uC73C\uB85C\n\uB3CC\uC544\uAC00\uACE0\n\n\uBC29\uD5A5\uD0A4
     \uB610\uB294 WASD\uB97C \uB20C\uB7EC \uC2DC\uC791\uD558\uC138\uC694\n\n\uB3D9\uBB3C
     \uCE5C\uAD6C\uB4E4\uC740 \uAC01\uC790 \uB2E4\uB978 \uC2A4\uD0AC\uC774 \uC788\uC5B4\uC694\n\n\uCD5C\uB300\uD55C
-    \uD65C\uC6A9\uD574\uBCF4\uC138\uC694\n\n\uD589\uC6B4\uC744 \uBE4C\uAC8C\uC694"
+    \uD65C\uC6A9\uD574\uBCF4\uC138\uC694\n\n\uD558\uB298\uC5D0\uC11C \uB3CC\uC774
+    \uB5A8\uC5B4\uC9D1\uB2C8\uB2E4\n\n\uB9DE\uC73C\uBA74 \uB3D9\uBB3C \uCE5C\uAD6C\uB4E4\uC774
+    \uC544\uD30C\uD574\uC694\n\n\uB3CC\uC744 \uD53C\uD574\uC8FC\uC138\uC694\n\n\uADF8\uB9AC\uACE0
+    \uB3D9\uC2DC\uC5D0 \uAE38\uB3C4 \uAC74\uB108\uC8FC\uC138\uC694\n\n\uBB34\uB2E8\uD6A1\uB2E8\uC774\uC9C0\uB9CC...\uBB50
+    \uBCC4 \uC218 \uC788\uB098\uC694?\n\n\uB3D9\uBB3C \uCE5C\uAD6C\uB4E4\uC774 \uAC74\uB108\uACE0
+    \uC2F6\uB2E4\uB294\uB370...\n\n\uD589\uC6B4\uC744 \uBE4C\uAC8C\uC694"
 --- !u!222 &666940858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14205,8 +14204,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540465410}
   m_HandleRect: {fileID: 1540465409}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.97875
+  m_Value: 0.9999964
+  m_Size: 0.97874993
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15743,7 +15742,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1408041089}
   m_HandleRect: {fileID: 1408041088}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 0.0000017951517
   m_Size: 0.9716667
   m_NumberOfSteps: 0
   m_OnValueChanged:
