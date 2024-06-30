@@ -14,6 +14,7 @@ public class Player_Skill3 : MonoBehaviour
     private HorizObsSpawner horizObsSpawner;
 
     private PlayerControll playerControll;
+    public ExplosionEffect explosionEffect;
 
     private void Awake()
     {
@@ -28,6 +29,10 @@ public class Player_Skill3 : MonoBehaviour
     {
         if (playerControll.isSkillUse)
         {
+            if (explosionEffect != null)
+            {
+                explosionEffect.SetPositionOfEffect();
+            }
             RemoveObss();
         }
         
