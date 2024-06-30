@@ -99,9 +99,9 @@ public class PlayerControll : MonoBehaviour
             Debug.Log("스킬 사용");
             isSkillUse = true;
             gaugeTime = 0f;
+            audioManager.PlaySkillSound();
             SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
             // SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
-            audioManager.PlaySkillSound();
         }
     }
 
@@ -110,9 +110,9 @@ public class PlayerControll : MonoBehaviour
         Debug.Log("버튼으로 스킬 사용");
         isSkillUse = true;
         gaugeTime = 0f;
+        audioManager.PlaySkillSound();
         SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
         //SkillButton.gameObject.SetActive(false); // 스킬 사용 후 버튼 비활성화
-        audioManager.PlaySkillSound();
     }
 
     private void Skill_Passive_On()
