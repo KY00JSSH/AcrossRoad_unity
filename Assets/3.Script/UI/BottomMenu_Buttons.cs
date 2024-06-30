@@ -21,6 +21,7 @@ public class BottomMenu_Buttons : MonoBehaviour
 
     public CharacterSelect_buttons characterSelectButtons;
     public HowToPlay howToPlayButtons;
+    public RankingSystem rankingSystem;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class BottomMenu_Buttons : MonoBehaviour
 
         characterSelectButtons = FindObjectOfType<CharacterSelect_buttons>();
         howToPlayButtons = FindObjectOfType<HowToPlay>();
+        rankingSystem = FindObjectOfType<RankingSystem>();
     }
 
     // Start is called before the first frame update
@@ -99,5 +101,6 @@ public class BottomMenu_Buttons : MonoBehaviour
     private void Ranking()
     {
         Button_Disappear();
+        rankingSystem.RankingSystem_Appear();
     }
 }
