@@ -45,16 +45,19 @@ public class RankingSystem : MonoBehaviour {
         LoadRanking();
         DisplayRanking();
 
+        
         RankingSystem_Disappear();
     }
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.O)) {
+    private void Update() 
+    {
+        rankingsystemRectTransform.anchoredPosition = Vector2.zero; // 오브젝트가 안움직이게
+
+        if (Input.GetKeyDown(KeyCode.O)) {
             SaveRanking();
         }
         else if(Input.GetKeyDown(KeyCode.L)) {
-            LoadRanking();
-            DisplayRanking(); /**/
+            LoadRanking();            
         }
     }
 
@@ -77,8 +80,6 @@ public class RankingSystem : MonoBehaviour {
         jsonRankData.rankData = rankData;
         string jsonString = JsonUtility.ToJson(jsonRankData);
         File.WriteAllText(path, jsonString);
-
-        DisplayRanking(); /**/
     }
 
     public List<Rank> LoadRanking() {
@@ -90,6 +91,7 @@ public class RankingSystem : MonoBehaviour {
         }
         //return null;
         return new List<Rank>(); /**/
+        //return jsonRankData.rankData; 
     }
 
     private void DisplayRanking() /**/
@@ -112,7 +114,8 @@ public class RankingSystem : MonoBehaviour {
     }
 
     public void RankingSystem_Appear()
-    {
+    {        
+        
         rankingsystemRectTransform.localScale = Vector3.one;
         playerMovement.SetMovementEnabled(false); // RankingSystem이 나타났을 때 캐릭터가 못움직이게 하기 위함
     }
