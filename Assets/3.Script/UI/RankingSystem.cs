@@ -29,6 +29,8 @@ public class RankingSystem : MonoBehaviour {
     public Button Back_Button;
     public PlayerMovement playerMovement; // RankingSystem이 나타났을 때 캐릭터가 못움직이게 하기 위함
 
+    public PlayerControll playerControll;
+
 
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -38,6 +40,8 @@ public class RankingSystem : MonoBehaviour {
         bottomMenuButtons = FindObjectOfType<BottomMenu_Buttons>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         Back_Button.onClick.AddListener(Back); //돌아가기 버튼 로직
+
+        playerControll = FindObjectOfType<PlayerControll>();
     }
 
     private void Start() /**/
@@ -51,13 +55,10 @@ public class RankingSystem : MonoBehaviour {
 
     private void Update() 
     {
-        rankingsystemRectTransform.anchoredPosition = Vector2.zero; // 오브젝트가 안움직이게
-
-        if (Input.GetKeyDown(KeyCode.O)) {
-            SaveRanking();
-        }
-        else if(Input.GetKeyDown(KeyCode.L)) {
-            LoadRanking();            
+        rankingsystemRectTransform.anchoredPosition = Vector2.zero; // 오브젝트가 안움직이게   
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            ClearRanking();
         }
     }
 
@@ -72,9 +73,9 @@ public class RankingSystem : MonoBehaviour {
         List<Rank> rankData = LoadRanking() ?? new List<Rank>(); /**/
 
         Rank rank = new Rank();
-        rank.name = player.name;
+        rank.name = player.name;        
         rank.time = DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"));
-        rank.score = player.GetComponent<PlayerMovement>().score;
+        rank.score = player.GetComponent<PlayerMovement>().score;       
         rankData.Add(rank);
 
         jsonRankData.rankData = rankData;
@@ -109,7 +110,6 @@ public class RankingSystem : MonoBehaviour {
             texts[0].text = rank.name;
             texts[1].text = rank.score.ToString();
             texts[2].text = rank.time;
-
         }
     }
 
