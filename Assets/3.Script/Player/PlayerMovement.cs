@@ -91,12 +91,4 @@ public class PlayerMovement : MonoBehaviour {
      * 7. 중간에 CollideEnter 할 경우에도 Flag false
      * 
      */
-
-
-    //HowToPlay, RankingSystem이 나타났을 때 플레이어가 움직이지 못하게 하기 위함 - 240630 00:15 지훈 작성
-    public void StopAllCoroutines() 
-    {
-        StopAllCoroutines();
-    }
-
 }
