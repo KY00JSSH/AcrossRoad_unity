@@ -13661,10 +13661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a716349c4390f408a70f38ed9a4bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  player: {fileID: 0}
   textScore: {fileID: 982464778}
 --- !u!114 &982464777
 MonoBehaviour:
@@ -13714,7 +13711,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score 000
+  m_Text: Score 0
 --- !u!222 &982464779
 CanvasRenderer:
   m_ObjectHideFlags: 0
