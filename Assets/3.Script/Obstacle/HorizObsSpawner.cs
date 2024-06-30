@@ -66,8 +66,8 @@ public class HorizObsSpawner : ObsSpawner
                 foreach (GameObject obst in obsList)
                 {
                     if (
-                        obst.activeInHierarchy && 
-                        Mathf.Abs(obst.transform.position.x - pos.x) < minSpacing && 
+                        obst.activeInHierarchy &&
+                        Mathf.Abs(obst.transform.position.x - pos.x) < minSpacing &&
                         obst.transform.position.z == zPos
                         )
                     {
@@ -82,28 +82,46 @@ public class HorizObsSpawner : ObsSpawner
                     {
                         if (!obst.activeInHierarchy)
                         {
-                            obst.transform.position = pos;
-                            obst.SetActive(true);
+                            bool positionOccupied = false;
 
-                            HorizObsController obsController = obst.GetComponent<HorizObsController>();
-                            float delay = Random.Range(0.1f, 3f); // 장애물마다 다른 딜레이 설정
-                            if (pos.x < player.transform.position.x)
+                            foreach (GameObject otherObst in obsList)
                             {
-                                obsController.SetDirection(Vector3.right, delay);
-                            }
-                            else
-                            {
-                                obsController.SetDirection(Vector3.left, delay);
+                                if (otherObst.activeInHierarchy)
+                                {
+                                    float distance = Vector3.Distance(otherObst.transform.position, pos);
+                                    if (distance < minSpacing)
+                                    {
+                                        positionOccupied = true;
+                                        break;
+                                    }
+                                }
                             }
 
-                            if (!zPositionCarCount.ContainsKey(zPos))
+                            if (!positionOccupied)
                             {
-                                zPositionCarCount[zPos] = 0;
-                            }
-                            zPositionCarCount[zPos]++;
+                                obst.transform.position = pos;
+                                obst.SetActive(true);
 
-                            obstaclesActivated++;
-                            break;
+                                HorizObsController obsController = obst.GetComponent<HorizObsController>();
+                                float delay = Random.Range(0.1f, 3f); // 장애물마다 다른 딜레이 설정
+                                if (pos.x < player.transform.position.x)
+                                {
+                                    obsController.SetDirection(Vector3.right, delay);
+                                }
+                                else
+                                {
+                                    obsController.SetDirection(Vector3.left, delay);
+                                }
+
+                                if (!zPositionCarCount.ContainsKey(zPos))
+                                {
+                                    zPositionCarCount[zPos] = 0;
+                                }
+                                zPositionCarCount[zPos]++;
+
+                                obstaclesActivated++;
+                                break;
+                            }
                         }
                     }
                 }
