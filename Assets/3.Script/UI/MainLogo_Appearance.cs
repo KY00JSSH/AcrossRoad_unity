@@ -11,20 +11,25 @@ public class MainLogo_Appearance : MonoBehaviour
     public Image logoimage;
     public float fadeDuration = 2.0f;
     public float elapsedTime = 0f;
-         
-    void Start()
+    public RectTransform howToPlay;
+    public RectTransform ranking;
+    private void Start()
     {
-        
+        howToPlay = FindObjectOfType<HowToPlay>().GetComponent<RectTransform>();
+        ranking = FindObjectOfType<RankingSystem>().GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        ProgramStart_logo_Appear();
-        GameStart_logo_Disapper();
+        if (howToPlay.localScale.Equals(Vector3.zero) &&
+            ranking.localScale.Equals(Vector3.zero)) {
+            ProgramStart_logo_Appear();
+            GameStart_logo_Disapper();
+        }
     }
-       
-    void ProgramStart_logo_Appear()
+
+    public void ProgramStart_logo_Appear()
     {      
          if (elapsedTime < fadeDuration)
          {

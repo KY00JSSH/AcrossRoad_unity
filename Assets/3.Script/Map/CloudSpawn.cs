@@ -17,6 +17,7 @@ public class CloudSpawn : MonoBehaviour {
         cloudList = new GameObject[cloudCount];
         for (int i = 0; i < cloudCount; i++) {
             cloudList[i] = Instantiate(cloudPrefeb);
+            cloudList[i].transform.parent = transform;
             cloudList[i].SetActive(false);
         }
         spawnedTime = Time.time;

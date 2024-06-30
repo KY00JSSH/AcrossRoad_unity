@@ -18,10 +18,13 @@ public class StopButton : MonoBehaviour
 
     bool isGameOver = true;
 
+    public GameObject mainLogo;
+
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
-        button = GetComponent<Button>();             
+        button = GetComponent<Button>();
+        mainLogo = FindObjectOfType<MainLogo_Appearance>().gameObject;
     }
 
     // Start is called before the first frame update
@@ -49,15 +52,10 @@ public class StopButton : MonoBehaviour
         }
     }
 
-    public void GameStart_Button_appear()
-    {        
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)
-            || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
-            || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
-            || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))        
-        {
+    public void GameStart_Button_appear() {
+        if (!mainLogo.activeSelf) {
             isGameOver = false;
-            rect.localScale = Vector3.one;           
+            rect.localScale = Vector3.one;
         }
     }
 

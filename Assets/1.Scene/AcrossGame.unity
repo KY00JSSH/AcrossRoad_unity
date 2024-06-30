@@ -6336,6 +6336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logoimage: {fileID: 323372308}
   fadeDuration: 2
+  mainLogo: {fileID: 0}
 --- !u!114 &323372307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13613,6 +13614,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899098408}
   m_CullTransparentMesh: 1
+--- !u!1 &936277595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936277596}
+  - component: {fileID: 936277597}
+  m_Layer: 0
+  m_Name: CloudSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &936277596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936277595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1936296724}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936277597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936277595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d1ffef11eeffc45b8f434830fce89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudPrefeb: {fileID: 1998822023407848862, guid: 7e27c86492fc04a419218f6374ff340b, type: 3}
 --- !u!1 &953717223
 GameObject:
   m_ObjectHideFlags: 0
@@ -14160,8 +14205,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540465410}
   m_HandleRect: {fileID: 1540465409}
   m_Direction: 2
-  m_Value: 1.0000036
-  m_Size: 0.97875005
+  m_Value: 1
+  m_Size: 0.97875
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14867,6 +14912,8 @@ MonoBehaviour:
   logoimage: {fileID: 1389944011}
   fadeDuration: 1
   elapsedTime: 0
+  howToPlay: {fileID: 0}
+  ranking: {fileID: 0}
 --- !u!114 &1389944011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26289,7 +26336,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.2772339, g: 0.4854709, b: 0.6603774, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -26384,6 +26431,7 @@ Transform:
   - {fileID: 645594064}
   - {fileID: 388887107}
   - {fileID: 697552854}
+  - {fileID: 936277596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
