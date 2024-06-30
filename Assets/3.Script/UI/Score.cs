@@ -3,24 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
-{
-    [SerializeField]
-    private PlayerMovement[] playerMovement;
+public class Score : MonoBehaviour {
+    public PlayerMovement player;
 
     [Header("# InGame")]
     [SerializeField]
     private Text textScore;
 
-    private int selcetedCharacterIndex = 0;
-
-    private void Update()
-    {
-       if(playerMovement.Length > 0 && selcetedCharacterIndex >= 0 &&
-            selcetedCharacterIndex < playerMovement.Length)
-        {
-            textScore.text = $"Score {playerMovement[selcetedCharacterIndex].score}";
-        }
+    private void Update() {
+        if (player != null)
+            textScore.text = $"Score {player.score}";
     }
 
 }

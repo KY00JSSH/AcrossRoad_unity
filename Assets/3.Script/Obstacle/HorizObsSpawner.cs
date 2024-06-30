@@ -20,10 +20,13 @@ public class HorizObsSpawner : ObsSpawner
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        setPlayerObject();
         initObsticle();
         prevPlayerPos = player.transform.position;
         zPositionCarCount = new Dictionary<float, int>();
+    }
+    public void setPlayerObject() {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
