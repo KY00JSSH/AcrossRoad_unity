@@ -12,13 +12,19 @@ public class Restart_Button : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
         rect.localScale = Vector3.zero; // 게임오버까지 버튼 숨김
-        playerControl = FindObjectOfType<PlayerControll>();//240629 14:20
-        if (playerControl != null)
+        setPlayerControl();
+        if (playerControl != null) 
         {
             playerControl.OnDead += Character_Die_Button_Appear;
         }
     }
        
+    public void setPlayerControl() {
+        playerControl = FindObjectOfType<PlayerControll>();
+        if (playerControl != null) {
+            playerControl.OnDead += Character_Die_Button_Appear;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

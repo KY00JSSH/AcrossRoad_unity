@@ -66,6 +66,8 @@ public class MainLogo_Appearance : MonoBehaviour
             MapControl mapControl = FindObjectOfType<MapControl>();
             mapControl.setPlayerTransform();
 
+            Restart_Button restartButton = FindObjectOfType<Restart_Button>();
+            restartButton.setPlayerControl();
             //rect.localScale = Vector3.zero;     
          }
     }

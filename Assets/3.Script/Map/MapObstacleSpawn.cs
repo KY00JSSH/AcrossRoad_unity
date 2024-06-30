@@ -12,7 +12,6 @@ public class MapObstacleSpawn : MonoBehaviour {
         float lastPosX = minPosX;
         for(int i = 0;  i< randomObsCount; i++) {
             float randomPosX = Random.Range(6, 12) / 2 * 2;
-            Debug.Log(randomPosX);
             position.x = lastPosX + randomPosX;
             if (position.x.Equals(4) && position.z.Equals(0)) position.x += 2;
             CreateObstacle(RandomObs(), position);
