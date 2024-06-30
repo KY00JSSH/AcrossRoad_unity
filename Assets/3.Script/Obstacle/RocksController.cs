@@ -17,7 +17,7 @@ public class RocksController : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        else if (collision.gameObject.CompareTag("Ground"))
+        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obs") || collision.gameObject.CompareTag("DieObs"))
         {
             gameObject.SetActive(false);
             spawner.ActivateRandomNewRock();
