@@ -17,6 +17,8 @@ public class RocksSpawner : ObsSpawner
     [SerializeField]
     private int maxActiveRocks = 25; // 최대 활성화된 돌의 수
 
+    private float timeCheck = 0f;
+
     public Vector3 PlayerPosition
     {
         get { return player.transform.position; }
@@ -41,8 +43,9 @@ public class RocksSpawner : ObsSpawner
     {
         deadCheck();
 
+        timeCheck += Time.deltaTime;
         // Player가 일정 거리 이상 이동했는지 확인
-        if (Time.frameCount % 3 == 0)  //3초마다 확인
+        if (timeCheck >= 0.4f)
         {
             //이동한 거리가 일정거리 이상일때 위치 갱신해서 새로  drop
             if (Vector3.Distance(player.transform.position, lastPlayerPosition) >= dropChangeDistance)
@@ -50,6 +53,7 @@ public class RocksSpawner : ObsSpawner
                 DropRocksAroundPlayer();
                 lastPlayerPosition = player.transform.position; // 마지막 위치 갱신
             }
+            timeCheck -= 0.4f;
         }
     }
 
